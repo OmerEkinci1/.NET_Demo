@@ -1,0 +1,8 @@
+D:\Desktop\AgteksDemo\Core\bin\Debug\netcoreapp3.1\Core.deps.json
+D:\Desktop\AgteksDemo\Core\bin\Debug\netcoreapp3.1\Core.dll
+D:\Desktop\AgteksDemo\Core\bin\Debug\netcoreapp3.1\Core.pdb
+D:\Desktop\AgteksDemo\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfoInputs.cache
+D:\Desktop\AgteksDemo\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfo.cs
+D:\Desktop\AgteksDemo\Core\obj\Debug\netcoreapp3.1\Core.csproj.CoreCompileInputs.cache
+D:\Desktop\AgteksDemo\Core\obj\Debug\netcoreapp3.1\Core.dll
+D:\Desktop\AgteksDemo\Core\obj\Debug\netcoreapp3.1\Core.pdb

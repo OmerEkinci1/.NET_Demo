@@ -1,0 +1,16 @@
+D:\Desktop\AgteksDemo\Business\bin\Debug\netcoreapp3.1\Business.deps.json
+D:\Desktop\AgteksDemo\Business\bin\Debug\netcoreapp3.1\Business.dll
+D:\Desktop\AgteksDemo\Business\bin\Debug\netcoreapp3.1\Business.pdb
+D:\Desktop\AgteksDemo\Business\bin\Debug\netcoreapp3.1\Core.dll
+D:\Desktop\AgteksDemo\Business\bin\Debug\netcoreapp3.1\DataAccess.dll
+D:\Desktop\AgteksDemo\Business\bin\Debug\netcoreapp3.1\Entities.dll
+D:\Desktop\AgteksDemo\Business\bin\Debug\netcoreapp3.1\Core.pdb
+D:\Desktop\AgteksDemo\Business\bin\Debug\netcoreapp3.1\DataAccess.pdb
+D:\Desktop\AgteksDemo\Business\bin\Debug\netcoreapp3.1\Entities.pdb
+D:\Desktop\AgteksDemo\Business\obj\Debug\netcoreapp3.1\Business.csprojAssemblyReference.cache
+D:\Desktop\AgteksDemo\Business\obj\Debug\netcoreapp3.1\Business.AssemblyInfoInputs.cache
+D:\Desktop\AgteksDemo\Business\obj\Debug\netcoreapp3.1\Business.AssemblyInfo.cs
+D:\Desktop\AgteksDemo\Business\obj\Debug\netcoreapp3.1\Business.csproj.CoreCompileInputs.cache
+D:\Desktop\AgteksDemo\Business\obj\Debug\netcoreapp3.1\Business.csproj.CopyComplete
+D:\Desktop\AgteksDemo\Business\obj\Debug\netcoreapp3.1\Business.dll
+D:\Desktop\AgteksDemo\Business\obj\Debug\netcoreapp3.1\Business.pdb
