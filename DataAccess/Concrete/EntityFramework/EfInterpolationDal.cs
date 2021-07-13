@@ -19,8 +19,8 @@ namespace DataAccess.Concrete.EntityFramework
                              select new Interpolation
                              {
                                  ID = i.ID,
-                                 Text = i.Text,
-                                 Picture = i.Picture
+                                 ImagePath = i.ImagePath,
+                                 ClassName = i.ClassName,
                              };
 
                 return result.SingleOrDefault();

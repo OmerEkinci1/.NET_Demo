@@ -13,17 +13,17 @@ namespace WebAPI.Controllers
     [ApiController]
     public class InterpolationsController : ControllerBase
     {
-        private IInterpolationService _pictureService;
+        private IInterpolationService _interpolationService;
 
-        public InterpolationsController(IInterpolationService pictureService)
+        public InterpolationsController(IInterpolationService interpolationService)
         {
-            _pictureService = pictureService;
+            _interpolationService = interpolationService;
         }
 
         [HttpPost("add")]
         public ActionResult Add(Interpolation interpolation, IFormFile file)
         {
-            var result = _pictureService.Add(interpolation,file);
+            var result = _interpolationService.Add(interpolation,file);
             if (result.Success)
             {
                 return Ok(result);
@@ -34,7 +34,7 @@ namespace WebAPI.Controllers
         [HttpDelete("delete")] // HttpPost olabilir, duruma göre denenicek.
         public ActionResult Delete(Interpolation interpolation)
         {
-            var result = _pictureService.Delete(interpolation);
+            var result = _interpolationService.Delete(interpolation);
             if (result.Success)
             {
                 return Ok(result);
@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
         [HttpPut("update")] // HttpPost olabilir, duruma göre denenicek.
         public ActionResult Update(Interpolation interpolation, IFormFile file)
         {
-            var result = _pictureService.Update(interpolation, file);
+            var result = _interpolationService.Update(interpolation, file);
             if (result.Success)
             {
                 return Ok(result);
@@ -56,7 +56,7 @@ namespace WebAPI.Controllers
         [HttpGet("get")]
         public ActionResult GetByID(int id)
         {
-            var result = _pictureService.GetByID(id);
+            var result = _interpolationService.GetByID(id);
             if (result.Data != null)
             {
                 return Ok(result);
@@ -67,7 +67,7 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public ActionResult GetAll()
         {
-            var result = _pictureService.GetAll();
+            var result = _interpolationService.GetAll();
             if (result.Data != null)
             {
                 return Ok(result);

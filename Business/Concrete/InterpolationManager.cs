@@ -31,15 +31,14 @@ namespace Business.Concrete
         [LogAspect(typeof(FileLogger))]
         public IResult Add(Interpolation interpolation, IFormFile file)
         {
-            var result = BusinessRules.Run(CheckIfPictureDoesExist(interpolation), CheckIfThereIsAnyData(), 
-                CheckIfTextDoesExist(interpolation), CheckTheImageLimit());
+            var result = BusinessRules.Run(CheckIfThereIsAnyData(),CheckIfImagePathDoesExist(interpolation), CheckTheImageLimit());
 
             if (result != null)
             {
                 return result;
             }
 
-            interpolation.Picture = FileHelper.AddAsync(file);
+            interpolation.ImagePath = FileHelper.AddAsync(file);
             _interpolationDal.Add(interpolation);
             return new SuccessResult();
         }
@@ -50,7 +49,7 @@ namespace Business.Concrete
         {
             var result = _interpolationDal.Get(p => p.ID == interpolation.ID);
 
-            var oldpath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\wwwroot")) + _interpolationDal.Get(p => p.ID == interpolation.ID).Picture;
+            var oldpath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\wwwroot")) + _interpolationDal.Get(p => p.ID == interpolation.ID).ImagePath;
             _interpolationDal.Delete(result);
             return new SuccessResult();
         }
@@ -74,35 +73,23 @@ namespace Business.Concrete
         [LogAspect(typeof(FileLogger))]
         public IResult Update(Interpolation interpolation, IFormFile file)
         {
-            var result = BusinessRules.Run(CheckIfPictureDoesExist(interpolation), CheckIfThereIsAnyData(),
-                CheckIfTextDoesExist(interpolation));
+            var result = BusinessRules.Run( CheckIfThereIsAnyData(), CheckIfImagePathDoesExist(interpolation));
 
             if (result != null)
             {
                 return result;
             }
 
-            var oldpath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\wwwroot")) + _interpolationDal.Get(p => p.ID == interpolation.ID).Picture;
+            var oldpath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\wwwroot")) + _interpolationDal.Get(p => p.ID == interpolation.ID).ImagePath;
 
-            interpolation.Picture = FileHelper.UpdateAsync(oldpath ,file);
+            interpolation.ImagePath = FileHelper.UpdateAsync(oldpath ,file);
             _interpolationDal.Update(interpolation);
             return new SuccessResult();
         }
 
-        private IResult CheckIfPictureDoesExist(Interpolation interpolation)
+        private IResult CheckIfImagePathDoesExist(Interpolation interpolation)
         {
-            var result = _interpolationDal.Get(p => p.Picture == interpolation.Picture);
-
-            if (result != null)
-            {
-                return new ErrorResult(Messages.pictureIsAlreadyExist);
-            }
-            return new SuccessResult();
-        }
-
-        private IResult CheckIfTextDoesExist(Interpolation interpolation)
-        {
-            var result = _interpolationDal.Get(p => p.Text == interpolation.Text);
+            var result = _interpolationDal.Get(p => p.ImagePath == interpolation.ImagePath);
 
             if (result != null)
             {
