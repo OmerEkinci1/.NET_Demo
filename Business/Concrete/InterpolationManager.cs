@@ -1,8 +1,10 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Logging;
 using Core.Aspects.Performance;
 using Core.Aspects.Transaction;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Core.Utilities.Business;
 using Core.Utilities.Helpers;
 using Core.Utilities.Results;
@@ -26,6 +28,7 @@ namespace Business.Concrete
         }
 
         [TransactionScopeAspect]
+        [LogAspect(typeof(FileLogger))]
         public IResult Add(Interpolation interpolation, IFormFile file)
         {
             var result = BusinessRules.Run(CheckIfPictureDoesExist(interpolation), CheckIfThereIsAnyData(), 
@@ -42,6 +45,7 @@ namespace Business.Concrete
         }
 
         [TransactionScopeAspect]
+        [LogAspect(typeof(FileLogger))]
         public IResult Delete(Interpolation interpolation)
         {
             var result = _interpolationDal.Get(p => p.ID == interpolation.ID);
@@ -51,7 +55,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        [CacheAspect]
+        [CacheAspect(2)]
         [TransactionScopeAspect]
         [PerformanceAspect(3)]
         public IDataResult<List<Interpolation>> GetAll()
@@ -67,6 +71,7 @@ namespace Business.Concrete
         }
 
         [TransactionScopeAspect]
+        [LogAspect(typeof(FileLogger))]
         public IResult Update(Interpolation interpolation, IFormFile file)
         {
             var result = BusinessRules.Run(CheckIfPictureDoesExist(interpolation), CheckIfThereIsAnyData(),
