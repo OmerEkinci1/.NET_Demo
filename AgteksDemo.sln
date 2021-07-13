@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{24EC974E-A790-464A-9486-C95DA331C54C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocketConn", "SocketConn\SocketConn.csproj", "{38FC736A-9002-477D-BF01-C7D200229C34}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{24EC974E-A790-464A-9486-C95DA331C54C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24EC974E-A790-464A-9486-C95DA331C54C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24EC974E-A790-464A-9486-C95DA331C54C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{38FC736A-9002-477D-BF01-C7D200229C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38FC736A-9002-477D-BF01-C7D200229C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38FC736A-9002-477D-BF01-C7D200229C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38FC736A-9002-477D-BF01-C7D200229C34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

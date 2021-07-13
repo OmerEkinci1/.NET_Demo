@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpDelete("delete")] // HttpPost olabilir, duruma göre denenicek.
+        [HttpDelete("delete")] 
         public ActionResult Delete(Interpolation interpolation)
         {
             var result = _interpolationService.Delete(interpolation);
@@ -42,7 +42,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPut("update")] // HttpPost olabilir, duruma göre denenicek.
+        [HttpPut("update")] 
         public ActionResult Update(Interpolation interpolation, IFormFile file)
         {
             var result = _interpolationService.Update(interpolation, file);
