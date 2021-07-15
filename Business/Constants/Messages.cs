@@ -13,5 +13,6 @@ namespace Business.Constants
         public static string pictureDeleted = "Picture is deleted from database";
         public static string thereIsNoPicture = "There is no picture data to get from database";
         public static string pictureLimitIsFull = "There are 30 picture in database. Limit is over";
+        public static string PhotoIsSendingToMLServer = "Photo is sending for evaluating prediction";
     }
 }

@@ -22,9 +22,9 @@ namespace Business.Concrete
     {
         private IInterpolationDal _interpolationDal;
 
-        public InterpolationManager(IInterpolationDal pictureDal)
+        public InterpolationManager(IInterpolationDal interpolationDal)
         {
-            _interpolationDal = pictureDal;
+            _interpolationDal = interpolationDal;
         }
 
         [TransactionScopeAspect]
@@ -40,7 +40,7 @@ namespace Business.Concrete
 
             interpolation.ImagePath = FileHelper.AddAsync(file);
             _interpolationDal.Add(interpolation);
-            return new SuccessResult();
+            return new SuccessResult(Messages.pictureAdded);
         }
 
         [TransactionScopeAspect]
@@ -51,7 +51,7 @@ namespace Business.Concrete
 
             var oldpath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\wwwroot")) + _interpolationDal.Get(p => p.ID == interpolation.ID).ImagePath;
             _interpolationDal.Delete(result);
-            return new SuccessResult();
+            return new SuccessResult(Messages.pictureDeleted);
         }
 
         [CacheAspect(2)]
@@ -70,6 +70,12 @@ namespace Business.Concrete
         }
 
         [TransactionScopeAspect]
+        public IResult Send(IFormFile file)
+        {
+            return new SuccessResult(Messages.PhotoIsSendingToMLServer);
+        }
+
+        [TransactionScopeAspect]
         [LogAspect(typeof(FileLogger))]
         public IResult Update(Interpolation interpolation, IFormFile file)
         {
@@ -84,7 +90,7 @@ namespace Business.Concrete
 
             interpolation.ImagePath = FileHelper.UpdateAsync(oldpath ,file);
             _interpolationDal.Update(interpolation);
-            return new SuccessResult();
+            return new SuccessResult(Messages.pictureUpdated);
         }
 
         private IResult CheckIfImagePathDoesExist(Interpolation interpolation)

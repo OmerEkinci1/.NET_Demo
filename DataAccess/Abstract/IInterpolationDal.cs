@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Http;
 
 namespace DataAccess.Abstract
 {
