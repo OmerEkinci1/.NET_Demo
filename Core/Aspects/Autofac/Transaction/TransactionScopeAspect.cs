@@ -18,7 +18,7 @@ namespace Core.Aspects.Transaction
                     invocation.Proceed();
                     transactionScope.Complete();
                 }
-                catch (System.Exception e)
+                catch
                 {
                     transactionScope.Dispose();
                     throw;

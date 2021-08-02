@@ -60,7 +60,6 @@ D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\Business.pdb
 D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\Core.pdb
 D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\DataAccess.pdb
 D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\Entities.pdb
-D:\Desktop\AgteksDemo\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.csprojAssemblyReference.cache
 D:\Desktop\AgteksDemo\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.AssemblyInfoInputs.cache
 D:\Desktop\AgteksDemo\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.AssemblyInfo.cs
 D:\Desktop\AgteksDemo\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.csproj.CoreCompileInputs.cache
@@ -73,3 +72,4 @@ D:\Desktop\AgteksDemo\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.csproj.CopyComplete
 D:\Desktop\AgteksDemo\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.dll
 D:\Desktop\AgteksDemo\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.pdb
 D:\Desktop\AgteksDemo\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.genruntimeconfig.cache
+D:\Desktop\AgteksDemo\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.csproj.AssemblyReference.cache

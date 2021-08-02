@@ -1,3 +1,4 @@
+using Business;
 using Core.DependencyResolvers;
 using Core.Extensions;
 using Core.Utilities.IoC;
@@ -12,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace WebAPI
@@ -28,26 +30,63 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            //services.AddControllers();
+
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowOrigin",
+            //        builder => builder.WithOrigins("http://localhost:4200"));
+            //});
+
+            //services.AddDependencyResolvers(new ICoreModule[] {
+            //    new CoreModule()
+            //});
+
+            services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                    options.JsonSerializerOptions.IgnoreNullValues = true;
+                });
+
 
             services.AddCors(options =>
             {
-                options.AddPolicy("AllowOrigin",
-                    builder => builder.WithOrigins("http://localhost:4200"));
-            });
-
-            services.AddDependencyResolvers(new ICoreModule[] {
-                new CoreModule()
+                options.AddPolicy(
+                    "AllowOrigin",
+                    builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
+
+            ServiceTool.ServiceProvider = app.ApplicationServices;
+
+            var configurationManager = app.ApplicationServices.GetService<ConfigurationManager>();
+            switch (configurationManager.Mode)
             {
-                app.UseDeveloperExceptionPage();
+                case ApplicationMode.Development:
+                    //app.UseDbFakeDataCreator();
+                    //break;
+
+                case ApplicationMode.Profiling:
+                case ApplicationMode.Staging:
+
+                    break;
+                case ApplicationMode.Production:
+                    break;
             }
+            
+            app.UseCors("AllowOrigin");
+
+            app.UseDeveloperExceptionPage();
 
             app.UseHttpsRedirection();
 

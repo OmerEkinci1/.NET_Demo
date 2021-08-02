@@ -53,6 +53,17 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpPost("send")]
+        public ActionResult Send(IFormFile file)
+        {
+            var result = _interpolationService.Send(file);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         [HttpGet("get")]
         public ActionResult GetByID(int id)
         {

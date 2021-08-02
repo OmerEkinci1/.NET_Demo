@@ -5,10 +5,10 @@ D:\Desktop\AgteksDemo\DataAccess\bin\Debug\netcoreapp3.1\Core.dll
 D:\Desktop\AgteksDemo\DataAccess\bin\Debug\netcoreapp3.1\Entities.dll
 D:\Desktop\AgteksDemo\DataAccess\bin\Debug\netcoreapp3.1\Core.pdb
 D:\Desktop\AgteksDemo\DataAccess\bin\Debug\netcoreapp3.1\Entities.pdb
-D:\Desktop\AgteksDemo\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csprojAssemblyReference.cache
 D:\Desktop\AgteksDemo\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.AssemblyInfoInputs.cache
 D:\Desktop\AgteksDemo\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.AssemblyInfo.cs
 D:\Desktop\AgteksDemo\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.CoreCompileInputs.cache
 D:\Desktop\AgteksDemo\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.CopyComplete
 D:\Desktop\AgteksDemo\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.dll
 D:\Desktop\AgteksDemo\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.pdb
+D:\Desktop\AgteksDemo\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.AssemblyReference.cache

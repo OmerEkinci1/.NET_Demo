@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Http;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfInterpolationDal : EfEntityRepositoryBase<Interpolation, DatabaseContext>, IInterpolationDal
+    public class EfInterpolationDal : EfEntityRepositoryBase<Interpolation, MsDbContext>, IInterpolationDal
     {
         public Interpolation GetByID(int id)
         {
-            using (DatabaseContext db = new DatabaseContext())
+            using (MsDbContext db = new MsDbContext())
             {
                 var result = from i in db.Interpolations
                              where i.ID == id
