@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Business.Fakes.DArch
 {
-	public sealed class DArchInMemory : PostgresqlDbContext
+	public sealed class DArchInMemory : ProjectDbContext
 	{
 		public DArchInMemory(DbContextOptions<DArchInMemory> options, IConfiguration configuration)
 			: base(options, configuration)

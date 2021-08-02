@@ -48,16 +48,7 @@ namespace Business
 
             services.AddDependencyResolvers(Configuration, new ICoreModule[] { coreModule });
 
-            //services.AddTransient<IAuthenticationCoordinator, AuthenticationCoordinator>();
-
             services.AddSingleton<ConfigurationManager>();
-
-
-            //services.AddTransient<ITokenHelper, JwtHelper>();
-            //services.AddTransient<IElasticSearch, ElasticSearchManager>();
-
-            //services.AddSingleton<ICacheManager, MemoryCacheManager>();
-
 
             ValidatorOptions.Global.DisplayNameResolver = (type, memberInfo, expression) =>
             {
@@ -72,7 +63,7 @@ namespace Business
 
             services.AddTransient<IInterpolationDal, EfInterpolationDal>();
 
-            services.AddDbContext<PostgresqlDbContext, DArchInMemory>(ServiceLifetime.Transient);
+            services.AddDbContext<ProjectDbContext, DArchInMemory>(ServiceLifetime.Transient);
         }
 
         public void ConfigureStagingServices(IServiceCollection services)
@@ -80,8 +71,9 @@ namespace Business
             ConfigureServices(services);
 
             services.AddTransient<IInterpolationDal, EfInterpolationDal>();
-            services.AddDbContext<PostgresqlDbContext>();
+            //services.AddDbContext<PostgresqlDbContext>();
 
+            services.AddDbContext<ProjectDbContext,MsDbContext>();
         }
 
         public void ConfigureProductionServices(IServiceCollection services)
@@ -90,8 +82,9 @@ namespace Business
 
             services.AddTransient<IInterpolationDal, EfInterpolationDal>();
 
-            services.AddDbContext<PostgresqlDbContext>();
+            //services.AddDbContext<ProjectDbContext>();
 
+            services.AddDbContext<ProjectDbContext, MsDbContext>();
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -99,5 +92,4 @@ namespace Business
             builder.RegisterModule(new AutofacBusinessModule(new ConfigurationManager(Configuration, HostEnvironment)));
         }
     }
-}
 }

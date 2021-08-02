@@ -3,17 +3,35 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Entities.Concrete;
+using DataAccess.Concrete.EntityFramework.Contexts;
+using Microsoft.Extensions.Configuration;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class MsDbContext : DbContext
+    public sealed class MsDbContext : ProjectDbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public MsDbContext(DbContextOptions<MsDbContext> options, IConfiguration configuration)
+            : base(options, configuration)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-9HB05L6;Database=AgteksDemo;Integrated Security=True");
-
         }
 
-        public DbSet<Interpolation> Interpolations { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                base.OnConfiguring(optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DArchMsContext")));
+            }
+        }
     }
+
+    //public class MsDbContext : DbContext
+    //{
+    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //    {
+    //        optionsBuilder.UseSqlServer(@"Server=DESKTOP-9HB05L6;Database=AgteksDemo;Integrated Security=True");
+
+    //    }
+
+    //    public DbSet<Interpolation> Interpolations { get; set; }
+    //}
 }

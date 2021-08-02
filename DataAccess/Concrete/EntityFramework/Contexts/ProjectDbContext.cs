@@ -8,15 +8,15 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework.Contexts
 {
-	public class PostgresqlDbContext : DbContext
+	public class ProjectDbContext : DbContext
 	{
-		public PostgresqlDbContext(DbContextOptions<PostgresqlDbContext> options, IConfiguration configuration)
+		public ProjectDbContext(DbContextOptions<ProjectDbContext> options, IConfiguration configuration)
 																				: base(options)
 		{
 			Configuration = configuration;
 		}
 
-		protected PostgresqlDbContext(DbContextOptions options, IConfiguration configuration)
+		protected ProjectDbContext(DbContextOptions options, IConfiguration configuration)
 																		: base(options)
 		{
 			Configuration = configuration;
@@ -35,6 +35,7 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
 		{
 			if (!optionsBuilder.IsConfigured)
 			{
+				// burası default db nin bağlantısı. Şu anda PostgreSQL default olarak kullanılıyor.
 				base.OnConfiguring(optionsBuilder.UseNpgsql(Configuration.GetConnectionString("DArchPgContext")).EnableSensitiveDataLogging());
 
 			}
