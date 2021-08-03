@@ -40,6 +40,7 @@ namespace Business.Concrete
 
             interpolation.ImagePath = FileHelper.AddAsync(file);
             _interpolationDal.Add(interpolation);
+            //_interpolationDal.SaveChanges();
             return new SuccessResult(Messages.pictureAdded);
         }
 
@@ -59,7 +60,7 @@ namespace Business.Concrete
         [PerformanceAspect(3)]
         public IDataResult<List<Interpolation>> GetAll()
         {
-            return new SuccessDataResult<List<Interpolation>>(_interpolationDal.GetAll());
+            return new SuccessDataResult<List<Interpolation>>(_interpolationDal.GetList());
         }
 
         [CacheAspect]

@@ -6,7 +6,7 @@ using Entities.Concrete;
 using DataAccess.Concrete.EntityFramework.Contexts;
 using Microsoft.Extensions.Configuration;
 
-namespace DataAccess.Concrete.EntityFramework
+namespace DataAccess.Concrete.EntityFramework.Contexts
 {
     public sealed class MsDbContext : ProjectDbContext
     {

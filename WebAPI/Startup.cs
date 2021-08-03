@@ -20,15 +20,16 @@ namespace WebAPI
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostEnvironment hostEnvironment)
+            : base(configuration, hostEnvironment)
         {
-            Configuration = configuration;
+
         }
 
-        public IConfiguration Configuration { get; }
+        //public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public override void ConfigureServices(IServiceCollection services)
         {
             //services.AddControllers();
 
@@ -56,6 +57,12 @@ namespace WebAPI
                     "AllowOrigin",
                     builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
+
+            //services.AddTransient<FileLogger>();
+            //services.AddTransient<PostgreSqlLogger>();
+            //services.AddTransient<MsSqlLogger>();
+
+            //base.ConfigureServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -84,15 +91,22 @@ namespace WebAPI
                     break;
             }
             
-            app.UseCors("AllowOrigin");
 
             app.UseDeveloperExceptionPage();
+
+            app.ConfigureCustomExceptionMiddleware();
+
+            app.UseCors("AllowOrigin");
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
+            //app.UseAuthentication();
+
             app.UseAuthorization();
+
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {

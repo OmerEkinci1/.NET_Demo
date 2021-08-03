@@ -6,26 +6,29 @@ using Core.DataAccess.EntityFramework;
 using Entities.Concrete;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
+using DataAccess.Concrete.EntityFramework.Contexts;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfInterpolationDal : EfEntityRepositoryBase<Interpolation, MsDbContext>, IInterpolationDal
+    public class EfInterpolationDal : EfEntityRepositoryBase<Interpolation, ProjectDbContext>, IInterpolationDal
     {
-        public Interpolation GetByID(int id)
+        public EfInterpolationDal(ProjectDbContext context) : base(context)
         {
-            using (MsDbContext db = new MsDbContext())
-            {
-                var result = from i in db.Interpolations
-                             where i.ID == id
-                             select new Interpolation
-                             {
-                                 ID = i.ID,
-                                 ImagePath = i.ImagePath,
-                                 ClassName = i.ClassName,
-                             };
 
-                return result.SingleOrDefault();
-            }
         }
+        public async Task<Interpolation> GetByID(int id)
+        {
+            var single = await (from interpolation in Context.Interpolations
+                              where interpolation.ID == id
+                              select new Interpolation()
+                              {
+                                  ID = interpolation.ID,
+                                  ImagePath = interpolation.ImagePath,
+                                  ClassName = interpolation.ClassName
+                              }).FirstOrDefaultAsync();
+            return single;
+        }      
     }
 }

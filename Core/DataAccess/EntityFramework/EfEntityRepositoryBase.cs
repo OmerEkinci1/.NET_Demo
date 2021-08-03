@@ -5,60 +5,138 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Core.DataAccess.EntityFramework
 {
     public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
-        where TEntity : class, IEntity, new()
-        where TContext : DbContext, new()
+        where TEntity : class, IEntity
+        where TContext : DbContext
     {
-        public void Add(TEntity entity)
+        public EfEntityRepositoryBase(TContext context)
         {
-            // IDisposable pattern implementation of c#
-            using (TContext context = new TContext())
-            {
-                var addedEntity = context.Entry(entity);
-                addedEntity.State = EntityState.Added;
-                context.SaveChanges();
-            }
+            Context = context;
+        }
+
+        protected TContext Context { get; }
+
+        public TEntity Add(TEntity entity)
+        {
+            return Context.Add(entity).Entity;
+        }
+
+        public TEntity Update(TEntity entity)
+        {
+            Context.Update(entity);
+            return entity;
         }
 
         public void Delete(TEntity entity)
         {
-            using (TContext context = new TContext())
+            Context.Remove(entity);
+        }
+
+        public TEntity Get(Expression<Func<TEntity, bool>> expression)
+        {
+            return Context.Set<TEntity>().FirstOrDefault(expression);
+        }
+
+        public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> expression)
+        {
+            return await Context.Set<TEntity>().AsQueryable().FirstOrDefaultAsync(expression);
+        }
+
+        public IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> expression = null)
+        {
+            return expression == null ? Context.Set<TEntity>().AsNoTracking() : Context.Set<TEntity>().Where(expression).AsNoTracking();
+        }
+
+        public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> expression = null)
+        {
+            return expression == null ? await Context.Set<TEntity>().ToListAsync() :
+                 await Context.Set<TEntity>().Where(expression).ToListAsync();
+        }
+
+        public int SaveChanges()
+        {
+            return Context.SaveChanges();
+        }
+
+        public Task<int> SaveChangesAsync()
+        {
+            return Context.SaveChangesAsync();
+        }
+
+        public IQueryable<TEntity> Query()
+        {
+            return Context.Set<TEntity>();
+        }
+
+        public Task<int> Execute(FormattableString interpolatedQueryString)
+        {
+            return Context.Database.ExecuteSqlInterpolatedAsync(interpolatedQueryString);
+        }
+
+        public TResult InTransaction<TResult>(Func<TResult> action, Action successAction = null, Action<Exception> exceptionAction = null)
+        {
+            var result = default(TResult);
+            try
             {
-                var deletedEntity = context.Entry(entity);
-                deletedEntity.State = EntityState.Deleted;
-                context.SaveChanges();
+
+
+                if (Context.Database.ProviderName.EndsWith("InMemory"))
+                {
+                    result = action();
+                    SaveChanges();
+                }
+                else
+                {
+                    using (var tx = Context.Database.BeginTransaction())
+                    {
+                        try
+                        {
+                            result = action();
+                            SaveChanges();
+                            tx.Commit();
+                        }
+                        catch (Exception)
+                        {
+                            tx.Rollback();
+                            throw;
+                        }
+                    }
+                }
+
+                successAction?.Invoke();
+            }
+            catch (Exception ex)
+            {
+                if (exceptionAction == null)
+                {
+                    throw;
+                }
+
+                exceptionAction(ex);
+            }
+            return result;
+        }
+
+        public async Task<int> GetCountAsync(Expression<Func<TEntity, bool>> expression = null)
+        {
+            if (expression == null)
+            {
+                return await Context.Set<TEntity>().CountAsync();
+            }
+            else
+            {
+                return await Context.Set<TEntity>().CountAsync(expression);
             }
         }
 
-        public TEntity Get(Expression<Func<TEntity, bool>> filter)
+        public int GetCount(Expression<Func<TEntity, bool>> expression = null)
         {
-            using (TContext context = new TContext())
-            {
-                return context.Set<TEntity>().SingleOrDefault(filter);
-            }
+            return expression == null ? Context.Set<TEntity>().Count() : Context.Set<TEntity>().Count(expression);
         }
 
-        public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
-        {
-            using (TContext context = new TContext())
-            {
-                return filter == null
-                    ? context.Set<TEntity>().ToList()
-                    : context.Set<TEntity>().Where(filter).ToList();
-            }
-        }
-
-        public void Update(TEntity entity)
-        {
-            using (TContext context = new TContext())
-            {
-                var updatedEntity = context.Entry(entity);
-                updatedEntity.State = EntityState.Modified;
-                context.SaveChanges();
-            }
-        }
     }
 }

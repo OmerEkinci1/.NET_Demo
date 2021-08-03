@@ -10,6 +10,11 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
 {
 	public class ProjectDbContext : DbContext
 	{
+		// This added for trouble which is from Ef Implementation. It need parameterless constructor.
+		public ProjectDbContext()
+        {
+
+        }
 		public ProjectDbContext(DbContextOptions<ProjectDbContext> options, IConfiguration configuration)
 																				: base(options)
 		{
