@@ -27,7 +27,7 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
 			Configuration = configuration;
 		}
 
-        public DbSet<Interpolation> Interpolations { get; set; }
+        public DbSet<Integration> Interpolations { get; set; }
 
 		protected IConfiguration Configuration { get; }
 

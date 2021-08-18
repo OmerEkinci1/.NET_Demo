@@ -21,120 +21,150 @@ namespace Business.Concrete
 {
     public class InterpolationManager : IInterpolationService
     {
-        private IInterpolationDal _interpolationDal;
+        //    private IIntegrationDal _interpolationDal;
 
-        public InterpolationManager(IInterpolationDal interpolationDal)
-        {
-            _interpolationDal = interpolationDal;
-        }
+        //    public InterpolationManager(IIntegrationDal interpolationDal)
+        //    {
+        //        _interpolationDal = interpolationDal;
+        //    }
 
-        [TransactionScopeAspect]
-        [LogAspect(typeof(FileLogger))]
-        public async Task<IResult> Add(Interpolation interpolation, IFormFile file)
-        {
-            var result = BusinessRules.Run(CheckIfThereIsAnyData(),CheckIfImagePathDoesExist(interpolation));
+        //    [TransactionScopeAspect]
+        //    [LogAspect(typeof(FileLogger))]
+        //    public async Task<IResult> Add(Integration interpolation, IFormFile file)
+        //    {
+        //        var result = BusinessRules.Run(CheckIfThereIsAnyData(),CheckIfImagePathDoesExist(interpolation));
 
-            if (result != null)
-            {
-                return result;
-            }
+        //        if (result != null)
+        //        {
+        //            return result;
+        //        }
 
-            interpolation.ImagePath = FileHelper.AddAsync(file);
-            _interpolationDal.Add(interpolation);
-            await _interpolationDal.SaveChangesAsync();
-            return new SuccessResult(Messages.pictureAdded);
-        }
+        //        interpolation.ImagePath = FileHelper.AddAsync(file);
+        //        _interpolationDal.Add(interpolation);
+        //        await _interpolationDal.SaveChangesAsync();
+        //        return new SuccessResult(Messages.pictureAdded);
+        //    }
 
-        [TransactionScopeAspect]
-        [LogAspect(typeof(FileLogger))]
-        public async Task<IResult> Delete(Interpolation interpolation)
-        {
-            var result = _interpolationDal.Get(p => p.ID == interpolation.ID);
+        //    [TransactionScopeAspect]
+        //    [LogAspect(typeof(FileLogger))]
+        //    public async Task<IResult> Delete(Integration interpolation)
+        //    {
+        //        var result = _interpolationDal.Get(p => p.ID == interpolation.ID);
 
-            var oldpath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\wwwroot")) + _interpolationDal.Get(p => p.ID == interpolation.ID).ImagePath;
-            _interpolationDal.Delete(result);
-            await _interpolationDal.SaveChangesAsync();
-            return new SuccessResult(Messages.pictureDeleted);
-        }
+        //        var oldpath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\wwwroot")) + _interpolationDal.Get(p => p.ID == interpolation.ID).ImagePath;
+        //        _interpolationDal.Delete(result);
+        //        await _interpolationDal.SaveChangesAsync();
+        //        return new SuccessResult(Messages.pictureDeleted);
+        //    }
 
-        [CacheAspect(2)]
-        [TransactionScopeAspect]
-        [PerformanceAspect(3)]
-        public async Task<IDataResult<IEnumerable<Interpolation>>> GetAll()
-        {
-            var result = await _interpolationDal.GetListAsync();
-            return new SuccessDataResult<IEnumerable<Interpolation>>(result);
-        }
+        //    [CacheAspect(2)]
+        //    [TransactionScopeAspect]
+        //    [PerformanceAspect(3)]
+        //    public async Task<IDataResult<IEnumerable<Integration>>> GetAll()
+        //    {
+        //        var result = await _interpolationDal.GetListAsync();
+        //        return new SuccessDataResult<IEnumerable<Integration>>(result);
+        //    }
 
-        [CacheAspect]
-        [PerformanceAspect(3)]
-        public IDataResult<Interpolation> GetByID(int id)
-        {
-            return new SuccessDataResult<Interpolation>(_interpolationDal.Get(p => p.ID == id));
-        }
+        //    [CacheAspect]
+        //    [PerformanceAspect(3)]
+        //    public IDataResult<Integration> GetByID(int id)
+        //    {
+        //        return new SuccessDataResult<Integration>(_interpolationDal.Get(p => p.ID == id));
+        //    }
 
-        //public async Task<IDataResult<IEnumerable<Interpolation>>> GetCount()
-        //{
-        //    var result = _interpolationDal.GetCount();
-        //    return new SuccessDataResult<IEnumerable<Interpolation>>(result);
+        //    //public async Task<IDataResult<IEnumerable<Interpolation>>> GetCount()
+        //    //{
+        //    //    var result = _interpolationDal.GetCount();
+        //    //    return new SuccessDataResult<IEnumerable<Interpolation>>(result);
+        //    //}
+
+        //    [TransactionScopeAspect]
+        //    public IResult Send(IFormFile file)
+        //    {
+        //        return new SuccessResult(Messages.PhotoIsSendingToMLServer);
+        //    }
+
+        //    [TransactionScopeAspect]
+        //    [LogAspect(typeof(FileLogger))]
+        //    public async Task<IResult> Update(Integration interpolation, IFormFile file)
+        //    {
+        //        var result = BusinessRules.Run( CheckIfThereIsAnyData(), CheckIfImagePathDoesExist(interpolation));
+
+        //        if (result != null)
+        //        {
+        //            return result;
+        //        }
+
+        //        var oldpath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\wwwroot")) + _interpolationDal.Get(p => p.ID == interpolation.ID).ImagePath;
+
+        //        interpolation.ImagePath = FileHelper.UpdateAsync(oldpath ,file);
+        //        _interpolationDal.Update(interpolation);
+        //        await _interpolationDal.SaveChangesAsync();
+        //        return new SuccessResult(Messages.pictureUpdated);
+        //    }
+
+        //    private IResult CheckIfImagePathDoesExist(Integration interpolation)
+        //    {
+        //        var result = _interpolationDal.Get(p => p.ImagePath == interpolation.ImagePath);
+
+        //        if (result != null)
+        //        {
+        //            return new ErrorResult(Messages.textDataIsAlreadyExist);
+        //        }
+        //        return new SuccessResult();
+        //    }
+
+        //    private IResult CheckIfThereIsAnyData()
+        //    {
+        //        var result = GetAll();
+
+        //        if (result != null)
+        //        {
+        //            return new ErrorResult(Messages.thereIsNoPicture);
+        //        }
+        //        return new SuccessResult();
+        //    }
+
+        //    //private IResult CheckTheImageLimit()
+        //    //{
+        //    //    var result = GetAll();
+
+        //    //    if (result.Count > 30)
+        //    //    {
+        //    //        return new ErrorResult(Messages.pictureLimitIsFull);
+        //    //    }
+        //    //    return new SuccessResult();
+        //    //}
         //}
+        public Task<IResult> Add(Integration interpolation, IFormFile file)
+        {
+            throw new NotImplementedException();
+        }
 
-        [TransactionScopeAspect]
+        public Task<IResult> Delete(Integration interpolation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IDataResult<IEnumerable<Integration>>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<Integration> GetByID(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IResult Send(IFormFile file)
         {
-            return new SuccessResult(Messages.PhotoIsSendingToMLServer);
+            throw new NotImplementedException();
         }
 
-        [TransactionScopeAspect]
-        [LogAspect(typeof(FileLogger))]
-        public async Task<IResult> Update(Interpolation interpolation, IFormFile file)
+        public Task<IResult> Update(Integration interpolation, IFormFile file)
         {
-            var result = BusinessRules.Run( CheckIfThereIsAnyData(), CheckIfImagePathDoesExist(interpolation));
-
-            if (result != null)
-            {
-                return result;
-            }
-
-            var oldpath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\wwwroot")) + _interpolationDal.Get(p => p.ID == interpolation.ID).ImagePath;
-
-            interpolation.ImagePath = FileHelper.UpdateAsync(oldpath ,file);
-            _interpolationDal.Update(interpolation);
-            await _interpolationDal.SaveChangesAsync();
-            return new SuccessResult(Messages.pictureUpdated);
+            throw new NotImplementedException();
         }
-
-        private IResult CheckIfImagePathDoesExist(Interpolation interpolation)
-        {
-            var result = _interpolationDal.Get(p => p.ImagePath == interpolation.ImagePath);
-
-            if (result != null)
-            {
-                return new ErrorResult(Messages.textDataIsAlreadyExist);
-            }
-            return new SuccessResult();
-        }
-
-        private IResult CheckIfThereIsAnyData()
-        {
-            var result = GetAll();
-
-            if (result != null)
-            {
-                return new ErrorResult(Messages.thereIsNoPicture);
-            }
-            return new SuccessResult();
-        }
-
-        //private IResult CheckTheImageLimit()
-        //{
-        //    var result = GetAll();
-
-        //    if (result.Count > 30)
-        //    {
-        //        return new ErrorResult(Messages.pictureLimitIsFull);
-        //    }
-        //    return new SuccessResult();
-        //}
     }
 }

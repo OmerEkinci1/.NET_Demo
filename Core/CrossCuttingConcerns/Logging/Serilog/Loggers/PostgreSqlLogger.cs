@@ -5,7 +5,10 @@ using Microsoft.Extensions.Configuration;
 using Serilog;
 using System;
 using System.Collections.Generic;
+using Microsoft.Extensions.DependencyInjection;
 using System.Text;
+using NpgsqlTypes;
+using Serilog.Sinks.PostgreSQL;
 
 namespace Core.CrossCuttingConcerns.Logging.Serilog.Loggers
 {

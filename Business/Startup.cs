@@ -61,7 +61,7 @@ namespace Business
         {
             ConfigureServices(services);
 
-            services.AddTransient<IInterpolationDal, EfInterpolationDal>();
+            services.AddTransient<IIntegrationDal, EfIntegrationDal>();
 
             services.AddDbContext<ProjectDbContext, DArchInMemory>(ServiceLifetime.Transient);
         }
@@ -70,7 +70,7 @@ namespace Business
         {
             ConfigureServices(services);
 
-            services.AddTransient<IInterpolationDal, EfInterpolationDal>();
+            services.AddTransient<IIntegrationDal, EfIntegrationDal>();
             //services.AddDbContext<PostgresqlDbContext>();
 
             services.AddDbContext<ProjectDbContext,MsDbContext>();
@@ -80,7 +80,7 @@ namespace Business
         {
             ConfigureServices(services);
 
-            services.AddTransient<IInterpolationDal, EfInterpolationDal>();
+            services.AddTransient<IIntegrationDal, EfIntegrationDal>();
 
             //services.AddDbContext<ProjectDbContext>();
 

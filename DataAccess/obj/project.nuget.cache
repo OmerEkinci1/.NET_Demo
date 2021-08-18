@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JXn5ObR+/YZ61IF4xRZ4tF4Jav3Efc9IVkRUiOJ/He30uUNaC+TZ+GKXlVLlu6j/QTYP/9/VCsHb1ET5F/mDVg==",
+  "dgSpecHash": "l8qjnBEPgatFq3MNGsWDbXG8Loc4yV/+6xGxkz7jT6TVa0/9VlqhemP7N5TQGiY7a+Fjn58c2BJYJT7uox7FpA==",
   "success": true,
   "projectFilePath": "D:\\Desktop\\AgteksDemo\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
@@ -74,6 +74,7 @@
     "C:\\Users\\Omer\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\serilog.sinks.mssqlserver\\5.6.0\\serilog.sinks.mssqlserver.5.6.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\serilog.sinks.periodicbatching\\2.3.0\\serilog.sinks.periodicbatching.2.3.0.nupkg.sha512",
+    "C:\\Users\\Omer\\.nuget\\packages\\serilog.sinks.postgresql\\2.3.0\\serilog.sinks.postgresql.2.3.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

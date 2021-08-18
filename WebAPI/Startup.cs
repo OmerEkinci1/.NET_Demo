@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 
 namespace WebAPI
 {
-    public class Startup
+    public class Startup : BusinessStartup
     {
         public Startup(IConfiguration configuration, IHostEnvironment hostEnvironment)
             : base(configuration, hostEnvironment)

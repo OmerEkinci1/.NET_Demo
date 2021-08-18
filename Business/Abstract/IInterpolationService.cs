@@ -10,11 +10,11 @@ namespace Business.Abstract
 {
     public interface IInterpolationService
     {
-        Task<IResult> Add(Interpolation interpolation, IFormFile file);
-        Task<IResult> Delete(Interpolation interpolation);
-        Task<IResult> Update(Interpolation interpolation, IFormFile file);
+        Task<IResult> Add(Integration interpolation, IFormFile file);
+        Task<IResult> Delete(Integration interpolation);
+        Task<IResult> Update(Integration interpolation, IFormFile file);
         IResult Send(IFormFile file);
-        IDataResult<Interpolation> GetByID(int id);
-        Task<IDataResult<IEnumerable<Interpolation>>> GetAll();
+        IDataResult<Integration> GetByID(int id);
+        Task<IDataResult<IEnumerable<Integration>>> GetAll();
     }
 }

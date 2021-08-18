@@ -7,13 +7,12 @@ using System.Text;
 
 namespace DataAccess.Concrete.Configurations
 {
-    public class InterpolationEntityConfiguration : IEntityTypeConfiguration<Interpolation>
+    public class InterpolationEntityConfiguration : IEntityTypeConfiguration<Integration>
     {
-        public void Configure(EntityTypeBuilder<Interpolation> builder)
+        public void Configure(EntityTypeBuilder<Integration> builder)
         {
             builder.HasKey(x => x.ID);
-            builder.Property(x => x.ImagePath).HasMaxLength(300).IsRequired();
-            builder.Property(x => x.ClassName).HasMaxLength(30).IsRequired(); // UI tarafına sığsın diye.
+            builder.Property(x => x.JSON_TEXT).HasMaxLength(300).IsRequired();
         }
     }
 }

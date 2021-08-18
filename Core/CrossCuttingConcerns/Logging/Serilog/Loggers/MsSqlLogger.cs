@@ -2,6 +2,7 @@
 using Core.Utilities.IoC;
 using Microsoft.Extensions.Configuration;
 using global::Serilog;
+using Microsoft.Extensions.DependencyInjection;
 using Serilog.Sinks.MSSqlServer;
 using System;
 using System.Collections.Generic;
