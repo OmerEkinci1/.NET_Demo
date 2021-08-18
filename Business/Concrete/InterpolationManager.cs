@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
@@ -29,9 +30,9 @@ namespace Business.Concrete
 
         [TransactionScopeAspect]
         [LogAspect(typeof(FileLogger))]
-        public IResult Add(Interpolation interpolation, IFormFile file)
+        public async Task<IResult> Add(Interpolation interpolation, IFormFile file)
         {
-            var result = BusinessRules.Run(CheckIfThereIsAnyData(),CheckIfImagePathDoesExist(interpolation), CheckTheImageLimit());
+            var result = BusinessRules.Run(CheckIfThereIsAnyData(),CheckIfImagePathDoesExist(interpolation));
 
             if (result != null)
             {
@@ -40,27 +41,29 @@ namespace Business.Concrete
 
             interpolation.ImagePath = FileHelper.AddAsync(file);
             _interpolationDal.Add(interpolation);
-            //_interpolationDal.SaveChanges();
+            await _interpolationDal.SaveChangesAsync();
             return new SuccessResult(Messages.pictureAdded);
         }
 
         [TransactionScopeAspect]
         [LogAspect(typeof(FileLogger))]
-        public IResult Delete(Interpolation interpolation)
+        public async Task<IResult> Delete(Interpolation interpolation)
         {
             var result = _interpolationDal.Get(p => p.ID == interpolation.ID);
 
             var oldpath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\wwwroot")) + _interpolationDal.Get(p => p.ID == interpolation.ID).ImagePath;
             _interpolationDal.Delete(result);
+            await _interpolationDal.SaveChangesAsync();
             return new SuccessResult(Messages.pictureDeleted);
         }
 
         [CacheAspect(2)]
         [TransactionScopeAspect]
         [PerformanceAspect(3)]
-        public IDataResult<List<Interpolation>> GetAll()
+        public async Task<IDataResult<IEnumerable<Interpolation>>> GetAll()
         {
-            return new SuccessDataResult<List<Interpolation>>(_interpolationDal.GetList());
+            var result = await _interpolationDal.GetListAsync();
+            return new SuccessDataResult<IEnumerable<Interpolation>>(result);
         }
 
         [CacheAspect]
@@ -70,6 +73,12 @@ namespace Business.Concrete
             return new SuccessDataResult<Interpolation>(_interpolationDal.Get(p => p.ID == id));
         }
 
+        //public async Task<IDataResult<IEnumerable<Interpolation>>> GetCount()
+        //{
+        //    var result = _interpolationDal.GetCount();
+        //    return new SuccessDataResult<IEnumerable<Interpolation>>(result);
+        //}
+
         [TransactionScopeAspect]
         public IResult Send(IFormFile file)
         {
@@ -78,7 +87,7 @@ namespace Business.Concrete
 
         [TransactionScopeAspect]
         [LogAspect(typeof(FileLogger))]
-        public IResult Update(Interpolation interpolation, IFormFile file)
+        public async Task<IResult> Update(Interpolation interpolation, IFormFile file)
         {
             var result = BusinessRules.Run( CheckIfThereIsAnyData(), CheckIfImagePathDoesExist(interpolation));
 
@@ -91,6 +100,7 @@ namespace Business.Concrete
 
             interpolation.ImagePath = FileHelper.UpdateAsync(oldpath ,file);
             _interpolationDal.Update(interpolation);
+            await _interpolationDal.SaveChangesAsync();
             return new SuccessResult(Messages.pictureUpdated);
         }
 
@@ -107,7 +117,7 @@ namespace Business.Concrete
 
         private IResult CheckIfThereIsAnyData()
         {
-            var result = _interpolationDal.GetAll();
+            var result = GetAll();
 
             if (result != null)
             {
@@ -116,15 +126,15 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        private IResult CheckTheImageLimit()
-        {
-            var result = _interpolationDal.GetAll();
+        //private IResult CheckTheImageLimit()
+        //{
+        //    var result = GetAll();
 
-            if (result.Count > 30)
-            {
-                return new ErrorResult(Messages.pictureLimitIsFull);
-            }
-            return new SuccessResult();
-        }
+        //    if (result.Count > 30)
+        //    {
+        //        return new ErrorResult(Messages.pictureLimitIsFull);
+        //    }
+        //    return new SuccessResult();
+        //}
     }
 }
