@@ -1,4 +1,6 @@
 using Business;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
+using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Core.DependencyResolvers;
 using Core.Extensions;
 using Core.Utilities.IoC;
@@ -25,24 +27,8 @@ namespace WebAPI
         {
 
         }
-
-        //public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public override void ConfigureServices(IServiceCollection services)
         {
-            //services.AddControllers();
-
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy("AllowOrigin",
-            //        builder => builder.WithOrigins("http://localhost:4200"));
-            //});
-
-            //services.AddDependencyResolvers(new ICoreModule[] {
-            //    new CoreModule()
-            //});
-
             services.AddControllers()
                 .AddJsonOptions(options =>
                 {
@@ -58,22 +44,16 @@ namespace WebAPI
                     builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
 
-            //services.AddTransient<FileLogger>();
-            //services.AddTransient<PostgreSqlLogger>();
-            //services.AddTransient<MsSqlLogger>();
+            services.AddTransient<FileLogger>();
+            services.AddTransient<PostgreSqlLogger>();
+            services.AddTransient<MsSqlLogger>();
 
-            //base.ConfigureServices(services);
+            base.ConfigureServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //}
-
             ServiceTool.ServiceProvider = app.ApplicationServices;
 
             var configurationManager = app.ApplicationServices.GetService<ConfigurationManager>();
@@ -91,7 +71,6 @@ namespace WebAPI
                     break;
             }
             
-
             app.UseDeveloperExceptionPage();
 
             app.ConfigureCustomExceptionMiddleware();
@@ -102,7 +81,7 @@ namespace WebAPI
 
             app.UseRouting();
 
-            //app.UseAuthentication();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

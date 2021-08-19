@@ -24,29 +24,12 @@ namespace Business.DependencyResolvers.Autofac
         {
             _configuration = configuration;
         }
-        //protected override void Load(ContainerBuilder builder)
-        //{
-
-        //    builder.RegisterType<InterpolationManager>().As<IInterpolationService>();
-        //    builder.RegisterType<EfInterpolationDal>().As<IInterpolationDal>();
-
-        //    var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-
-        //    builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
-        //        .EnableInterfaceInterceptors(new ProxyGenerationOptions()
-        //        {
-        //            Selector = new AspectInterceptorSelector()
-        //        }).SingleInstance();
-        //}
 
         protected override void Load(ContainerBuilder builder)
         {
-
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
-
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
-
                     .AsClosedTypesOf(typeof(IRequestHandler<,>));
 
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
@@ -72,8 +55,7 @@ namespace Business.DependencyResolvers.Autofac
                 case ApplicationMode.Production:
 
                     builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
-                                    .Where(t => t.FullName.StartsWith("Business.Adapters"))
-                                    ;
+                                    .Where(t => t.FullName.StartsWith("Business.Adapters"));
                     break;
                 default:
                     break;
