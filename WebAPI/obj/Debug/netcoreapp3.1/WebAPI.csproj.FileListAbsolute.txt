@@ -93,3 +93,8 @@ D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll
 D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\Serilog.Sinks.MSSqlServer.dll
 D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\Serilog.Sinks.PeriodicBatching.dll
 D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\Serilog.Sinks.PostgreSQL.dll
+D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Desktop\AgteksDemo\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.MvcApplicationPartsAssemblyInfo.cs
+D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll

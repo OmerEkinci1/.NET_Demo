@@ -1,4 +1,5 @@
 using Business;
+using Business.Helpers;
 using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Core.DependencyResolvers;
@@ -14,13 +15,14 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace WebAPI
 {
-    public class Startup : BusinessStartup
+    public partial class Startup : BusinessStartup
     {
         public Startup(IConfiguration configuration, IHostEnvironment hostEnvironment)
             : base(configuration, hostEnvironment)
@@ -44,6 +46,11 @@ namespace WebAPI
                     builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
 
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.IncludeXmlComments(Path.ChangeExtension(typeof(Startup).Assembly.Location, ".xml"));
+            //});
+
             services.AddTransient<FileLogger>();
             services.AddTransient<PostgreSqlLogger>();
             services.AddTransient<MsSqlLogger>();
@@ -60,8 +67,8 @@ namespace WebAPI
             switch (configurationManager.Mode)
             {
                 case ApplicationMode.Development:
-                    //app.UseDbFakeDataCreator();
-                    //break;
+                    app.UseDbFakeDataCreator();
+                    break;
 
                 case ApplicationMode.Profiling:
                 case ApplicationMode.Staging:
@@ -70,14 +77,19 @@ namespace WebAPI
                 case ApplicationMode.Production:
                     break;
             }
+
             
             app.UseDeveloperExceptionPage();
 
             app.ConfigureCustomExceptionMiddleware();
 
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("v1/swagger.json", "AgteksDemo"); });
+
             app.UseCors("AllowOrigin");
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection(); // disable for sertification
 
             app.UseRouting();
 
