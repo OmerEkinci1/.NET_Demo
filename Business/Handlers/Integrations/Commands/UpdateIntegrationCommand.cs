@@ -25,10 +25,10 @@ namespace Business.Handlers.Interpolations.Commands
 
         public class UpdateInterpolationCommandHandler : IRequestHandler<UpdateIntegrationCommand, IResult>
         {
-            private readonly IIntegrationDal _integrationDal;
+            private readonly IIntegrationRepository _integrationDal;
             private readonly IMediator _mediator;
 
-            public UpdateInterpolationCommandHandler(IIntegrationDal integrationDal, IMediator mediator)
+            public UpdateInterpolationCommandHandler(IIntegrationRepository integrationDal, IMediator mediator)
             {
                 _integrationDal = integrationDal;
                 _mediator = mediator;

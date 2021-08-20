@@ -30,9 +30,9 @@ namespace Business.Handlers.Interpolations.Commands
 
         public class CreateInterpolationCommandHandler : IRequestHandler<CreateIntegrationCommand, IResult>
         {
-            private readonly IIntegrationDal _interpolationDal;
+            private readonly IIntegrationRepository _interpolationDal;
 
-            public CreateInterpolationCommandHandler(IIntegrationDal interpolationDal)
+            public CreateInterpolationCommandHandler(IIntegrationRepository interpolationDal)
             {
                 _interpolationDal = interpolationDal;
             }   

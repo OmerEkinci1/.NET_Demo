@@ -8,6 +8,7 @@ using Core.Utilities.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text.Json.Serialization;
@@ -58,7 +60,6 @@ namespace WebAPI
             base.ConfigureServices(services);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             ServiceTool.ServiceProvider = app.ApplicationServices;
@@ -89,7 +90,7 @@ namespace WebAPI
 
             app.UseCors("AllowOrigin");
 
-            // app.UseHttpsRedirection(); // disable for sertification
+            // app.UseHttpsRedirection(); // disable for not having https sertification
 
             app.UseRouting();
 
@@ -98,6 +99,17 @@ namespace WebAPI
             app.UseAuthorization();
 
             app.UseStaticFiles();
+
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("tr-TR"),
+            });
+
+            var cultureInfo = new CultureInfo("tr-TR");
+            cultureInfo.DateTimeFormat.ShortTimePattern = "HH:mm";
+
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
             app.UseEndpoints(endpoints =>
             {

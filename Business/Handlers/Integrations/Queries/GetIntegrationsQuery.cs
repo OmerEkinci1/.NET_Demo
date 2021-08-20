@@ -19,10 +19,10 @@ namespace Business.Handlers.Interpolations.Queries
     {
         public class GetInterpolationQueryHandler : IRequestHandler<GetIntegrationsQuery, IDataResult<IEnumerable<Integration>>>
         {
-            private readonly IIntegrationDal _interpolationDal;
+            private readonly IIntegrationRepository _interpolationDal;
             private readonly IMediator _mediator;
 
-            public GetInterpolationQueryHandler(IIntegrationDal interpolationDal, IMediator mediator)
+            public GetInterpolationQueryHandler(IIntegrationRepository interpolationDal, IMediator mediator)
             {
                 _interpolationDal = interpolationDal;
                 _mediator = mediator;

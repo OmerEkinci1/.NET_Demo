@@ -18,7 +18,7 @@ namespace Business.Handlers.Interpolations.Queries
 
         public class GetInterpolationQueryHandler : IRequestHandler<GetIntegrationByIdQuery, IDataResult<Integration>>
         {
-            private readonly IIntegrationDal _interpolationDal;
+            private readonly IIntegrationRepository _interpolationDal;
             private readonly IMediator _mediator;
 
             [LogAspect(typeof(FileLogger))]

@@ -2,13 +2,17 @@
 using Business.Constants;
 using Business.DependencyResolvers.Autofac;
 using Business.Fakes.DArch;
+using Core.CrossCuttingConcerns.Caching;
+using Core.CrossCuttingConcerns.Caching.Microsoft;
 using Core.DependencyResolvers;
 using Core.Extensions;
 using Core.Utilities.IoC;
 using DataAccess.Abstract;
+using DataAccess.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.EntityFramework.Contexts;
 using FluentValidation;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -49,6 +53,10 @@ namespace Business
             services.AddDependencyResolvers(Configuration, new ICoreModule[] { coreModule });
 
             services.AddSingleton<ConfigurationManager>();
+            services.AddSingleton<ICacheManager, MemoryCacheManager>();
+
+            services.AddAutoMapper(typeof(ConfigurationManager));
+            services.AddMediatR(typeof(BusinessStartup).GetTypeInfo().Assembly);
 
             ValidatorOptions.Global.DisplayNameResolver = (type, memberInfo, expression) =>
             {
@@ -61,7 +69,7 @@ namespace Business
         {
             ConfigureServices(services);
 
-            services.AddTransient<IIntegrationDal, EfIntegrationDal>();
+            services.AddTransient<IIntegrationRepository, IntegrationRepository>();
 
             services.AddDbContext<ProjectDbContext, DArchInMemory>(ServiceLifetime.Transient);
         }
@@ -69,18 +77,25 @@ namespace Business
         public void ConfigureStagingServices(IServiceCollection services)
         {
             ConfigureServices(services);
+            services.AddTransient<ILogRepository, LogRepository>();
+            services.AddTransient<ITranslateRepository, TranslateRepository>();
+            services.AddTransient<ILanguageRepository, LanguageRepository>();
 
-            services.AddTransient<IIntegrationDal, EfIntegrationDal>();
-            //services.AddDbContext<PostgresqlDbContext>();
+            services.AddTransient<IIntegrationRepository, IntegrationRepository>();
+            //services.AddDbContext<ProjectDbContext>();
 
-            services.AddDbContext<ProjectDbContext,MsDbContext>();
+            // MSSQL kullanmka sitrediğimiz için bu kullanım olacak, eğer default istenirse MsDbContext silinmesi yeterli.
+            services.AddDbContext<ProjectDbContext,MsDbContext>(); 
         }
 
         public void ConfigureProductionServices(IServiceCollection services)
         {
             ConfigureServices(services);
+            services.AddTransient<ILogRepository, LogRepository>();
+            services.AddTransient<ITranslateRepository, TranslateRepository>();
+            services.AddTransient<ILanguageRepository, LanguageRepository>();
 
-            services.AddTransient<IIntegrationDal, EfIntegrationDal>();
+            services.AddTransient<IIntegrationRepository, IntegrationRepository>();
 
             //services.AddDbContext<ProjectDbContext>();
 

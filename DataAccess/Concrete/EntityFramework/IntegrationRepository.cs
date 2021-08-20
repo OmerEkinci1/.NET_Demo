@@ -12,9 +12,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfIntegrationDal : EfEntityRepositoryBase<Integration, ProjectDbContext>, IIntegrationDal
+    public class IntegrationRepository : EfEntityRepositoryBase<Integration, ProjectDbContext>, IIntegrationRepository
     {
-        public EfIntegrationDal(ProjectDbContext context) : base(context)
+        public IntegrationRepository(ProjectDbContext context) : base(context)
         {
 
         }

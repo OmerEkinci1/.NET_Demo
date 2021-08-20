@@ -20,10 +20,10 @@ namespace Business.Handlers.Interpolations.Commands
 
         public class DeleteInterpolationCommandHandler : IRequestHandler<DeleteIntegrationCommand, IResult>
         {
-            private readonly IIntegrationDal _interpolationDal;
+            private readonly IIntegrationRepository _interpolationDal;
             private readonly IMediator _mediator;
 
-            public DeleteInterpolationCommandHandler(IIntegrationDal interpolationDal, IMediator mediator)
+            public DeleteInterpolationCommandHandler(IIntegrationRepository interpolationDal, IMediator mediator)
             {
                 _interpolationDal = interpolationDal;
                 _mediator = mediator;

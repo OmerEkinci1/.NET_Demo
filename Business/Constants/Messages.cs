@@ -16,5 +16,10 @@ namespace Business.Constants
         public static string pictureLimitIsFull = "There are 30 picture in database. Limit is over";
         public static string PhotoIsSendingToMLServer = "Photo is sending for evaluating prediction";
         public static string Unknown = "Unknown";
+
+        public static string Added { get; internal set; }
+        public static string NameAlreadyExist { get; internal set; }
+        public static string Deleted { get; internal set; }
+        public static string Updated { get; internal set; }
     }
 }

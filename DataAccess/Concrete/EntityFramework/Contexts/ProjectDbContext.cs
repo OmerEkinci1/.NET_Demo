@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Entities.Concrete;
+using Core.Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework.Contexts
 {
@@ -28,6 +29,10 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
 		}
 
         public DbSet<Integration> Interpolations { get; set; }
+        public DbSet<Translate> Translates { get; set; }
+        public DbSet<Log> Logs { get; set; }
+		public DbSet<Language> Languages { get; set; }
+
 
 		protected IConfiguration Configuration { get; }
 

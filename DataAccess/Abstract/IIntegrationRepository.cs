@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IIntegrationDal : IEntityRepository<Integration>
+    public interface IIntegrationRepository : IEntityRepository<Integration>
     {
         Task<Integration> GetByID(int id);
     }

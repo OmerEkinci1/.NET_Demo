@@ -98,3 +98,6 @@ D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swag
 D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Desktop\AgteksDemo\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.MvcApplicationPartsAssemblyInfo.cs
 D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\MediatR.Extensions.Microsoft.DependencyInjection.dll
