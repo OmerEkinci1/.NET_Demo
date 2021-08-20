@@ -18,12 +18,12 @@ namespace Business.Handlers.Interpolations.Commands
     {
         public int ID { get; set; }
 
-        public class DeleteInterpolationCommandHandler : IRequestHandler<DeleteIntegrationCommand, IResult>
+        public class DeleteIntegrationCommandHandler : IRequestHandler<DeleteIntegrationCommand, IResult>
         {
             private readonly IIntegrationRepository _interpolationDal;
             private readonly IMediator _mediator;
 
-            public DeleteInterpolationCommandHandler(IIntegrationRepository interpolationDal, IMediator mediator)
+            public DeleteIntegrationCommandHandler(IIntegrationRepository interpolationDal, IMediator mediator)
             {
                 _interpolationDal = interpolationDal;
                 _mediator = mediator;

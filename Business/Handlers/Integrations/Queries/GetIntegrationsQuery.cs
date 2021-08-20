@@ -17,12 +17,12 @@ namespace Business.Handlers.Interpolations.Queries
 {
     public class GetIntegrationsQuery : IRequest<IDataResult<IEnumerable<Integration>>>
     {
-        public class GetInterpolationQueryHandler : IRequestHandler<GetIntegrationsQuery, IDataResult<IEnumerable<Integration>>>
+        public class GetIntegrationQueryHandler : IRequestHandler<GetIntegrationsQuery, IDataResult<IEnumerable<Integration>>>
         {
             private readonly IIntegrationRepository _interpolationDal;
             private readonly IMediator _mediator;
 
-            public GetInterpolationQueryHandler(IIntegrationRepository interpolationDal, IMediator mediator)
+            public GetIntegrationQueryHandler(IIntegrationRepository interpolationDal, IMediator mediator)
             {
                 _interpolationDal = interpolationDal;
                 _mediator = mediator;

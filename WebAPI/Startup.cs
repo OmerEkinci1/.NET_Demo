@@ -1,4 +1,4 @@
-using Business;
+﻿using Business;
 using Business.Helpers;
 using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
@@ -40,7 +40,6 @@ namespace WebAPI
                     options.JsonSerializerOptions.IgnoreNullValues = true;
                 });
 
-
             services.AddCors(options =>
             {
                 options.AddPolicy(
@@ -48,6 +47,7 @@ namespace WebAPI
                     builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
 
+            // Ne yapıldığını pek çözemedim.
             //services.AddSwaggerGen(c =>
             //{
             //    c.IncludeXmlComments(Path.ChangeExtension(typeof(Startup).Assembly.Location, ".xml"));
@@ -62,6 +62,7 @@ namespace WebAPI
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // IMPORTANT. Since we delete AddDependencyResolvers, we use this code snippet.
             ServiceTool.ServiceProvider = app.ApplicationServices;
 
             var configurationManager = app.ApplicationServices.GetService<ConfigurationManager>();
@@ -73,7 +74,6 @@ namespace WebAPI
 
                 case ApplicationMode.Profiling:
                 case ApplicationMode.Staging:
-
                     break;
                 case ApplicationMode.Production:
                     break;
@@ -98,7 +98,6 @@ namespace WebAPI
 
             app.UseAuthorization();
 
-            app.UseStaticFiles();
 
             app.UseRequestLocalization(new RequestLocalizationOptions
             {
@@ -110,6 +109,8 @@ namespace WebAPI
 
             CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
             CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+            
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {

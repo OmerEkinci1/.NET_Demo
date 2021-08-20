@@ -23,12 +23,12 @@ namespace Business.Handlers.Interpolations.Commands
         public DateTime PROCESSED_DT { get; set; }
         public int PRODUCT_TYPE { get; set; }
 
-        public class UpdateInterpolationCommandHandler : IRequestHandler<UpdateIntegrationCommand, IResult>
+        public class UpdateIntegrationCommandHandler : IRequestHandler<UpdateIntegrationCommand, IResult>
         {
             private readonly IIntegrationRepository _integrationDal;
             private readonly IMediator _mediator;
 
-            public UpdateInterpolationCommandHandler(IIntegrationRepository integrationDal, IMediator mediator)
+            public UpdateIntegrationCommandHandler(IIntegrationRepository integrationDal, IMediator mediator)
             {
                 _integrationDal = integrationDal;
                 _mediator = mediator;

@@ -28,14 +28,16 @@ namespace Business.Handlers.Interpolations.Commands
         public DateTime PROCESSED_DT { get; set; }
         public int PRODUCT_TYPE { get; set; }
 
-        public class CreateInterpolationCommandHandler : IRequestHandler<CreateIntegrationCommand, IResult>
+        public class CreateIntegrationCommandHandler : IRequestHandler<CreateIntegrationCommand, IResult>
         {
             private readonly IIntegrationRepository _interpolationDal;
+            private readonly IMediator _mediator;
 
-            public CreateInterpolationCommandHandler(IIntegrationRepository interpolationDal)
+            public CreateIntegrationCommandHandler(IIntegrationRepository interpolationDal, IMediator mediator)
             {
                 _interpolationDal = interpolationDal;
-            }   
+                _mediator = mediator;
+            }
 
             [TransactionScopeAspect]
             [LogAspect(typeof(FileLogger))]

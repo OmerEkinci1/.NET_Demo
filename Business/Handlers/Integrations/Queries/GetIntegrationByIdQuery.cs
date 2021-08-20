@@ -16,7 +16,7 @@ namespace Business.Handlers.Interpolations.Queries
     {
         public int ID { get; set; }
 
-        public class GetInterpolationQueryHandler : IRequestHandler<GetIntegrationByIdQuery, IDataResult<Integration>>
+        public class GetIntegrationQueryHandler : IRequestHandler<GetIntegrationByIdQuery, IDataResult<Integration>>
         {
             private readonly IIntegrationRepository _interpolationDal;
             private readonly IMediator _mediator;
