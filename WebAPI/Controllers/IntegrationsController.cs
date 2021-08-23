@@ -11,16 +11,16 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/integrations")]
     [ApiController]
     public class IntegrationsController : BaseApiController
     {
         [Consumes("application/json")]
-        [Produces("application/json","text/plain")]
+        [Produces("application/json", "text/plain")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type= typeof(string))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpPost("add")]
-        public async Task<IActionResult> Add([FromBody] CreateIntegrationCommand createIntegrations)
+        public async Task<IActionResult> Add(CreateIntegrationCommand createIntegrations) // [FromBody]
         {
             return GetResponseOnlyResultMessage(await Mediator.Send(createIntegrations));
         }

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Business.Services;
+using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Security.Claims;
 using System.Text;
 
@@ -21,5 +23,14 @@ namespace Business.Constants
         public static string NameAlreadyExist { get; internal set; }
         public static string Deleted { get; internal set; }
         public static string Updated { get; internal set; }
+        public static string WrongCitizenId { get; internal set; }
+        public static string SendPassword { get; internal set; }
+        public static string NewPassword { get; internal set; }
+        public static string TrueButCellPhone { get; internal set; }
+        public static DArchToken InvalidCode { get; internal set; }
+        public static string TokenProviderException { get; internal set; }
+        public static string SuccessfulLogin { get; internal set; }
+        public static string SmsServiceNotFound { get; internal set; }
+        public static string SendMobileCode { get; internal set; }
     }
 }

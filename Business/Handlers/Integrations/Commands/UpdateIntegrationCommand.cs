@@ -42,10 +42,11 @@ namespace Business.Handlers.Interpolations.Commands
 
                 isInterpolationRecord.ID = request.ID;
                 isInterpolationRecord.JSON_TEXT = request.JSON_TEXT;
-                isInterpolationRecord.INS_DT = request.INS_DT;
-                isInterpolationRecord.IS_PROCESSED = request.IS_PROCESSED;
+                isInterpolationRecord.INS_DT = DateTime.Now;
+                isInterpolationRecord.IS_PROCESSED = "T";
                 isInterpolationRecord.PICTURE = request.PICTURE;
                 isInterpolationRecord.PRODUCT_TYPE = request.PRODUCT_TYPE;
+                isInterpolationRecord.PROCESSED_DT = DateTime.Now;
 
                 _integrationDal.Update(isInterpolationRecord);
                 await _integrationDal.SaveChangesAsync();

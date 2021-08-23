@@ -452,10 +452,10 @@
           "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration.Binder/2.0.0": {
+      "Microsoft.Extensions.Configuration.Binder/5.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Configuration": "2.0.0"
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {}
@@ -2687,12 +2687,14 @@
           "Microsoft.Extensions.Caching.Abstractions": "5.0.0",
           "Microsoft.Extensions.Caching.Memory": "5.0.0",
           "Microsoft.Extensions.Configuration": "5.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "5.0.0",
           "Microsoft.IdentityModel.Tokens": "6.11.1",
           "Newtonsoft.Json": "13.0.1",
           "Npgsql": "5.0.7",
           "Serilog.Sinks.File": "5.0.0",
           "Serilog.Sinks.MSSqlServer": "5.6.0",
           "Serilog.Sinks.PostgreSQL": "2.3.0",
+          "Swashbuckle.AspNetCore.SwaggerGen": "6.1.5",
           "System.IdentityModel.Tokens.Jwt": "6.11.1",
           "log4net": "2.0.12"
         },
@@ -3374,17 +3376,24 @@
         "version.txt"
       ]
     },
-    "Microsoft.Extensions.Configuration.Binder/2.0.0": {
-      "sha512": "IznHHzGUtrdpuQqIUdmzF6TYPcsYHONhHh3o9dGp39sX/9Zfmt476UnhvU0UhXgJnXXAikt/MpN6AuSLCCMdEQ==",
+    "Microsoft.Extensions.Configuration.Binder/5.0.0": {
+      "sha512": "Of1Irt1+NzWO+yEYkuDh5TpT4On7LKl98Q9iLqCdOZps6XXEWDj3AKtmyvzJPVXZe4apmkJJIiDL7rR1yC+hjQ==",
       "type": "package",
-      "path": "microsoft.extensions.configuration.binder/2.0.0",
+      "path": "microsoft.extensions.configuration.binder/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/net461/Microsoft.Extensions.Configuration.Binder.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.xml",
-        "microsoft.extensions.configuration.binder.2.0.0.nupkg.sha512",
-        "microsoft.extensions.configuration.binder.nuspec"
+        "microsoft.extensions.configuration.binder.5.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.binder.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "Microsoft.Extensions.DependencyInjection/5.0.2": {

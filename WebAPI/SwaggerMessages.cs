@@ -11,7 +11,7 @@ namespace WebAPI
         {
             static string Version => "v1";
             static string Title => "AgteksDemo";
-            static string ContactName => "Agteks";
+            static string ContactName => "AgteksDemo";
             static string LicenceName => "Use under LICX";
         }
     }

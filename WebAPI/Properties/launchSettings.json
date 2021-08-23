@@ -3,11 +3,11 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "http://localhost/WebAPI",
+      "applicationUrl": "http://localhost",
       "sslPort": 0
     },
     "iisExpress": {
-      "applicationUrl": "http://localhost:45342/WebAPI",
+      "applicationUrl": "http://localhost:45342",
       "sslPort": 0
     }
   },
@@ -46,7 +46,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Production"
       },
-      "applicationUrl": "https://localhost:5001;http://lcoalhost:5000"
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
     },
     "IIS Express": {
       "commandName": "IISExpress",

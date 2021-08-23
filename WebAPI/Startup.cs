@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -29,16 +30,18 @@ namespace WebAPI
         public Startup(IConfiguration configuration, IHostEnvironment hostEnvironment)
             : base(configuration, hostEnvironment)
         {
-
         }
+
         public override void ConfigureServices(IServiceCollection services)
         {
+            // Business katmanında olan dependency tanımlarının bir metot üzerinden buraya implemente edilmesi.
             services.AddControllers()
                 .AddJsonOptions(options =>
                 {
                     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
                     options.JsonSerializerOptions.IgnoreNullValues = true;
                 });
+
 
             services.AddCors(options =>
             {
@@ -47,11 +50,11 @@ namespace WebAPI
                     builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
 
-            // Ne yapıldığını pek çözemedim. Folder'da XML bir dosya olmadığı için hata veriyor. XML in içi ne ile dolu bilinmiyor.
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.IncludeXmlComments(Path.ChangeExtension(typeof(Startup).Assembly.Location, ".xml"));
-            //});
+            services.AddSwaggerGen(c =>
+            {
+                //c.IncludeXmlComments(Path.ChangeExtension(typeof(Startup).Assembly.Location, ".xml"));
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Agteks", Version= "v1" });
+            });
 
             services.AddTransient<FileLogger>();
             services.AddTransient<PostgreSqlLogger>();
@@ -62,8 +65,10 @@ namespace WebAPI
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            // IMPORTANT. Since we delete AddDependencyResolvers, we use this code snippet.
+            // VERY IMPORTANT. Since we removed the build from AddDependencyResolvers, let's set the Service provider manually.
+            // By the way, we can construct with DI by taking type to avoid calling static methods in aspects.
             ServiceTool.ServiceProvider = app.ApplicationServices;
+
 
             var configurationManager = app.ApplicationServices.GetService<ConfigurationManager>();
             switch (configurationManager.Mode)
@@ -74,22 +79,22 @@ namespace WebAPI
 
                 case ApplicationMode.Profiling:
                 case ApplicationMode.Staging:
+
                     break;
                 case ApplicationMode.Production:
                     break;
             }
- 
+
             app.UseDeveloperExceptionPage();
 
             app.ConfigureCustomExceptionMiddleware();
 
             app.UseSwagger();
 
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("v1/swagger.json", "Agteks"); });
-
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("v1/swagger.json", "AgteksDemo"); });
             app.UseCors("AllowOrigin");
 
-            // app.UseHttpsRedirection(); // disable for not having https sertification
+           // app.UseHttpsRedirection();
 
             app.UseRouting();
 
@@ -97,7 +102,7 @@ namespace WebAPI
 
             app.UseAuthorization();
 
-
+            // Make Turkish your default language. It shouldn't change according to the server.
             app.UseRequestLocalization(new RequestLocalizationOptions
             {
                 DefaultRequestCulture = new RequestCulture("tr-TR"),
@@ -108,13 +113,10 @@ namespace WebAPI
 
             CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
             CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
-            
+
             app.UseStaticFiles();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

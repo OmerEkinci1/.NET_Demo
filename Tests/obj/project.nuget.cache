@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bug7Skzg8xWfLSZyh98D2Ojpi6T+69L7W5+iaauRBrGJT+E0AiUbdgkyVHbDqsrysB8buITh8FO/Si8zVMhaBw==",
+  "dgSpecHash": "QUk7Hwp0o63+hkdteKafUYru5qPTX636L4/lE9ZK+yG6aU6y3SnwFXkan/PH1i9Yun9O1wTpZ7EMSg9SUlqrrw==",
   "success": true,
   "projectFilePath": "D:\\Desktop\\AgteksDemo\\Tests\\Tests.csproj",
   "expectedPackageFiles": [
@@ -76,6 +76,7 @@
     "C:\\Users\\Omer\\.nuget\\packages\\microsoft.net.test.sdk\\16.9.4\\microsoft.net.test.sdk.16.9.4.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
+    "C:\\Users\\Omer\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\microsoft.testplatform.objectmodel\\16.9.4\\microsoft.testplatform.objectmodel.16.9.4.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\microsoft.testplatform.testhost\\16.9.4\\microsoft.testplatform.testhost.16.9.4.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
@@ -109,6 +110,8 @@
     "C:\\Users\\Omer\\.nuget\\packages\\serilog.sinks.mssqlserver\\5.6.0\\serilog.sinks.mssqlserver.5.6.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\serilog.sinks.periodicbatching\\2.3.0\\serilog.sinks.periodicbatching.2.3.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\serilog.sinks.postgresql\\2.3.0\\serilog.sinks.postgresql.2.3.0.nupkg.sha512",
+    "C:\\Users\\Omer\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.1.5\\swashbuckle.aspnetcore.swagger.6.1.5.nupkg.sha512",
+    "C:\\Users\\Omer\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.1.5\\swashbuckle.aspnetcore.swaggergen.6.1.5.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\system.appcontext\\4.1.0\\system.appcontext.4.1.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

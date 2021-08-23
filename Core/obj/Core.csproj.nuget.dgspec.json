@@ -67,7 +67,7 @@
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[5.0.8, )"
+              "version": "[5.0.0, )"
             },
             "Microsoft.Extensions.Caching.Abstractions": {
               "target": "Package",
@@ -78,6 +78,10 @@
               "version": "[5.0.0, )"
             },
             "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
               "target": "Package",
               "version": "[5.0.0, )"
             },
@@ -104,6 +108,10 @@
             "Serilog.Sinks.PostgreSQL": {
               "target": "Package",
               "version": "[2.3.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.1.5, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",

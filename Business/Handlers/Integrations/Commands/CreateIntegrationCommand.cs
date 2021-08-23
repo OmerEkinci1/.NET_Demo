@@ -48,11 +48,11 @@ namespace Business.Handlers.Interpolations.Commands
 
                 var interpolations = new Integration
                 {
-                    INS_DT = request.INS_DT,
-                    IS_PROCESSED = request.IS_PROCESSED,
+                    INS_DT = DateTime.Now,
+                    IS_PROCESSED = "T",
                     JSON_TEXT = request.JSON_TEXT,
                     PRODUCT_TYPE = request.PRODUCT_TYPE,
-                    PROCESSED_DT = request.PROCESSED_DT,
+                    PROCESSED_DT = DateTime.Now,
                     PICTURE = request.PICTURE
                 };
 

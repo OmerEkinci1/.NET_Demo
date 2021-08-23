@@ -81,6 +81,10 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
               "version": "[6.11.1, )"
@@ -104,6 +108,10 @@
             "Serilog.Sinks.PostgreSQL": {
               "target": "Package",
               "version": "[2.3.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.1.5, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
