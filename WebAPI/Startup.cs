@@ -47,7 +47,7 @@ namespace WebAPI
                     builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
 
-            // Ne yapıldığını pek çözemedim.
+            // Ne yapıldığını pek çözemedim. Folder'da XML bir dosya olmadığı için hata veriyor. XML in içi ne ile dolu bilinmiyor.
             //services.AddSwaggerGen(c =>
             //{
             //    c.IncludeXmlComments(Path.ChangeExtension(typeof(Startup).Assembly.Location, ".xml"));
@@ -78,15 +78,14 @@ namespace WebAPI
                 case ApplicationMode.Production:
                     break;
             }
-
-            
+ 
             app.UseDeveloperExceptionPage();
 
             app.ConfigureCustomExceptionMiddleware();
 
             app.UseSwagger();
 
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("v1/swagger.json", "AgteksDemo"); });
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("v1/swagger.json", "Agteks"); });
 
             app.UseCors("AllowOrigin");
 

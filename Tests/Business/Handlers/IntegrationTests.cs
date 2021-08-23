@@ -111,7 +111,7 @@ namespace Tests.Business.Handlers
             ((List<Integration>)x.Data).Count.Should().BeGreaterThan(1);
         }
 
-        [Test]
+        //[Test]
         //public async Task Integration_GetQuery_Success()
         //{
         //    var query = new GetIntegrationByIdQuery();
@@ -125,5 +125,5 @@ namespace Tests.Business.Handlers
 
         //    x.Success.Should().BeTrue();
         //}
-    }
+    } 
 }

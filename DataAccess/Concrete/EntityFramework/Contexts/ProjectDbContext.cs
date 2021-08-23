@@ -28,7 +28,7 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
 			Configuration = configuration;
 		}
 
-        public DbSet<Integration> Interpolations { get; set; }
+        public DbSet<Integration> Integrations { get; set; }
         public DbSet<Translate> Translates { get; set; }
         public DbSet<Log> Logs { get; set; }
 		public DbSet<Language> Languages { get; set; }

@@ -20,7 +20,7 @@ namespace DataAccess.Concrete.EntityFramework
         }
         public async Task<Integration> GetByID(int id)
         {
-            var single = await (from integration in Context.Interpolations
+            var single = await (from integration in Context.Integrations
                               where integration.ID == id
                               select new Integration()
                               {

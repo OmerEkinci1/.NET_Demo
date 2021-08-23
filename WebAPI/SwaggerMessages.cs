@@ -10,7 +10,7 @@ namespace WebAPI
         static class SwaggerMessages
         {
             static string Version => "v1";
-            static string Title => "Agteks";
+            static string Title => "AgteksDemo";
             static string ContactName => "Agteks";
             static string LicenceName => "Use under LICX";
         }

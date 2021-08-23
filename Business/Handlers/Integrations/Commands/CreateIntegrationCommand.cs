@@ -56,7 +56,6 @@ namespace Business.Handlers.Interpolations.Commands
                     PICTURE = request.PICTURE
                 };
 
-                //interpolations.ImagePath = FileHelper.AddAsync(file);
                 _interpolationDal.Add(interpolations);
                 await _interpolationDal.SaveChangesAsync();
                 return new SuccessResult(Messages.pictureAdded);
