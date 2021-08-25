@@ -445,3 +445,6 @@ D:\Desktop\AgteksDemo\Tests\obj\Debug\net5.0\Tests.dll
 D:\Desktop\AgteksDemo\Tests\obj\Debug\net5.0\ref\Tests.dll
 D:\Desktop\AgteksDemo\Tests\obj\Debug\net5.0\Tests.pdb
 D:\Desktop\AgteksDemo\Tests\obj\Debug\net5.0\Tests.genruntimeconfig.cache
+D:\Desktop\AgteksDemo\Tests\bin\Debug\net5.0\Microsoft.OpenApi.dll
+D:\Desktop\AgteksDemo\Tests\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Desktop\AgteksDemo\Tests\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll

@@ -7,6 +7,7 @@ using Core.CrossCuttingConcerns.Caching.Microsoft;
 using Core.DependencyResolvers;
 using Core.Extensions;
 using Core.Utilities.IoC;
+using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
 using DataAccess.Concrete.EntityFramework;
@@ -53,6 +54,9 @@ namespace Business
             services.AddDependencyResolvers(Configuration, new ICoreModule[] { coreModule });
 
             services.AddSingleton<ConfigurationManager>();
+
+            services.AddTransient<ITokenHelper, JwtHelper>();
+
             services.AddSingleton<ICacheManager, MemoryCacheManager>();
 
             services.AddAutoMapper(typeof(ConfigurationManager));
@@ -82,6 +86,7 @@ namespace Business
             services.AddTransient<ILanguageRepository, LanguageRepository>();
 
             services.AddTransient<IIntegrationRepository, IntegrationRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
             //services.AddDbContext<ProjectDbContext>();
 
             // MSSQL kullanmka sitrediğimiz için bu kullanım olacak, eğer default istenirse MsDbContext silinmesi yeterli.
@@ -96,7 +101,7 @@ namespace Business
             services.AddTransient<ILanguageRepository, LanguageRepository>();
 
             services.AddTransient<IIntegrationRepository, IntegrationRepository>();
-
+            services.AddTransient<IUserRepository, UserRepository>();
             //services.AddDbContext<ProjectDbContext>();
 
             services.AddDbContext<ProjectDbContext, MsDbContext>();
