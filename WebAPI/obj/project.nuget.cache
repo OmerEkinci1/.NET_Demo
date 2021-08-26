@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vH05Oli4N/zZF22e0oPL0FoI3gxyHJxYlxNwmh2wGktlPSEyUOax8cOMKaHj0g8k4X2YRNl9Rdxfy40vl/WUDw==",
+  "dgSpecHash": "pmnsQuK+BRFUxkesAuvkn6X+VW4UNC3D3IG/URP+NL/NFvpvA3qW5YPBtCpGbMFMFckePGKVduVcXUD3Qi3ISw==",
   "success": true,
   "projectFilePath": "D:\\Desktop\\AgteksDemo\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
@@ -31,7 +31,7 @@
     "C:\\Users\\Omer\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.9\\microsoft.entityframeworkcore.analyzers.5.0.9.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.8\\microsoft.entityframeworkcore.design.5.0.8.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\5.0.9\\microsoft.entityframeworkcore.inmemory.5.0.9.nupkg.sha512",
-    "C:\\Users\\Omer\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.8\\microsoft.entityframeworkcore.relational.5.0.8.nupkg.sha512",
+    "C:\\Users\\Omer\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.9\\microsoft.entityframeworkcore.relational.5.0.9.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.7\\microsoft.entityframeworkcore.sqlserver.5.0.7.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",

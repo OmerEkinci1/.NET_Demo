@@ -18,13 +18,13 @@ namespace Business.Handlers.Interpolations.Queries
 
         public class GetIntegrationQueryHandler : IRequestHandler<GetIntegrationByIdQuery, IDataResult<Integration>>
         {
-            private readonly IIntegrationRepository _interpolationDal;
-            private readonly IMediator _mediator;
+            private readonly IIntegrationRepository _integrationRepository;
+            //private readonly IMediator _mediator;
 
             [LogAspect(typeof(FileLogger))]
             public async Task<IDataResult<Integration>> Handle(GetIntegrationByIdQuery request, CancellationToken cancellationToken)
             {
-                var interpolation = await _interpolationDal.GetAsync(x => x.ID == request.ID);
+                var interpolation = await _integrationRepository.GetAsync(x => x.ID == request.ID);
                 return new SuccessDataResult<Integration>(interpolation);
             }
         }
