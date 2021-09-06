@@ -12,6 +12,9 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -24,7 +27,7 @@ namespace Business.Handlers.Interpolations.Commands
         public string JSON_TEXT { get; set; }
         public DateTime INS_DT { get; set; }
         public DateTime IS_PROCESSED { get; set; }
-        public byte[] PICTURE { get; set; }
+        public string PICTURE { get; set; }
         public DateTime PROCESSED_DT { get; set; }
         public int PRODUCT_TYPE { get; set; }
 
@@ -45,6 +48,14 @@ namespace Business.Handlers.Interpolations.Commands
             public async Task<IResult> Handle(CreateIntegrationCommand request, CancellationToken cancellationToken)
             {
                 //var result = BusinessRules.Run(CheckIfThereIsAnyData(), CheckIfImagePathDoesExist(interpolation));
+
+                string imageString = request.PICTURE;
+                string fileName = DateTime.Now.ToString("yyyy-MM-dd HHmmssfff") + "_" + request.JSON_TEXT;
+                Bitmap bmpFromString = BitmapHelper.Base64StringBitmap(imageString);
+                // For this usage, user must to create folder which is attached below code.
+                string path = Path.Combine(@"C:\Services\Images", fileName + ".bmp");
+                var i2 = new Bitmap(bmpFromString);
+                i2.Save(path, ImageFormat.Bmp);
 
                 var interpolations = new Integration
                 {

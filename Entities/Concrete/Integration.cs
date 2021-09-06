@@ -11,7 +11,7 @@ namespace Entities.Concrete
         public string JSON_TEXT { get; set; }
         public DateTime INS_DT { get; set; }
         public string IS_PROCESSED { get; set; }
-        public byte[] PICTURE { get; set; }
+        public string PICTURE { get; set; }
         public DateTime PROCESSED_DT { get; set; }
         public int PRODUCT_TYPE { get; set; }
     }

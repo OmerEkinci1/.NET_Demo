@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oGjlGfJN2ev5xmod5h7BoqXYgoGtqxyFa4U1eQn/wNjjYLvjmZi0UC/gtuj5EpmDof75ht0cmp6RYhbsu/N1vw==",
+  "dgSpecHash": "Syr7Mm/NuJe/1+5tFUvRLX9ob6xxKoW7AX1bsDCgHDaxUWpQ8zzTy+UB6cKoix1PmnrTS3qMQCBM4SpGGF4vgg==",
   "success": true,
   "projectFilePath": "D:\\Desktop\\AgteksDemo\\Tests\\Tests.csproj",
   "expectedPackageFiles": [
@@ -82,7 +82,7 @@
     "C:\\Users\\Omer\\.nuget\\packages\\microsoft.testplatform.testhost\\16.9.4\\microsoft.testplatform.testhost.16.9.4.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
-    "C:\\Users\\Omer\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Omer\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\moq\\4.16.1\\moq.4.16.1.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\nest\\7.14.1\\nest.7.14.1.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
@@ -135,7 +135,7 @@
     "C:\\Users\\Omer\\.nuget\\packages\\system.diagnostics.tools\\4.3.0\\system.diagnostics.tools.4.3.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\system.diagnostics.tracesource\\4.3.0\\system.diagnostics.tracesource.4.3.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\system.diagnostics.tracing\\4.3.0\\system.diagnostics.tracing.4.3.0.nupkg.sha512",
-    "C:\\Users\\Omer\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
+    "C:\\Users\\Omer\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\system.dynamic.runtime\\4.3.0\\system.dynamic.runtime.4.3.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
     "C:\\Users\\Omer\\.nuget\\packages\\system.globalization.calendars\\4.3.0\\system.globalization.calendars.4.3.0.nupkg.sha512",
