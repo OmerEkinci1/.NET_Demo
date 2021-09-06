@@ -10,7 +10,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI.Controllers
 {
-    [Authorize] // Bu kısım tokenization yapıldığı zaman eklenicek.
+    //[Authorize] // Bu kısım Startup.cs'de jwtbearer yapılanması yapılacağı zaman eklenecektir. Şu anda paketlerden kaynaklı çakışmalar mevcuttur.
+                  // Eğer burası jwtbearer olmadan yapılmaya çalışınılırsa HTTP 500 alırız. Şu anki sistemde tokena gerek yok ondan yorumda kalacaktır.  
     [Route("[controller]")]
     [ApiController]
     public class BaseApiController : Controller

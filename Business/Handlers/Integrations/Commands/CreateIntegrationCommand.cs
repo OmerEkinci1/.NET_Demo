@@ -39,9 +39,9 @@ namespace Business.Handlers.Interpolations.Commands
                 _mediator = mediator;
             }
 
-            [TransactionScopeAspect]
-            [LogAspect(typeof(FileLogger))]
-            [CacheRemoveAspect("Get")]
+            //[TransactionScopeAspect]
+            //[LogAspect(typeof(FileLogger))]
+            //[CacheRemoveAspect("Get")]
             public async Task<IResult> Handle(CreateIntegrationCommand request, CancellationToken cancellationToken)
             {
                 //var result = BusinessRules.Run(CheckIfThereIsAnyData(), CheckIfImagePathDoesExist(interpolation));

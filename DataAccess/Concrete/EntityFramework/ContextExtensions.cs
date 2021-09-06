@@ -15,7 +15,6 @@ namespace DataAccess.Concrete.EntityFramework
         public static IQueryable<T> QueryableOf<T>(this DbContext _context, string typeName) where T : class
         {
             var type = _context.Model.GetEntityTypes(typeName).First();
-            // once modelden gercek type'i coz
             var q = (IQueryable)_context
                 .GetType()
                 .GetMethod("Set")

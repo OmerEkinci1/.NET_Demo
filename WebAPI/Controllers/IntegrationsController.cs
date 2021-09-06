@@ -1,5 +1,4 @@
-﻿using Business.Abstract;
-using Business.Handlers.Interpolations.Commands;
+﻿using Business.Handlers.Interpolations.Commands;
 using Business.Handlers.Interpolations.Queries;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
@@ -20,7 +19,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpPost("add")]
-        public async Task<IActionResult> Add(CreateIntegrationCommand createIntegrations) // [FromBody]
+        public async Task<IActionResult> Add([FromBody] CreateIntegrationCommand createIntegrations) // [FromBody]
         {
             return GetResponseOnlyResultMessage(await Mediator.Send(createIntegrations));
         }

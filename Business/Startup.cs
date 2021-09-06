@@ -2,10 +2,12 @@
 using Business.Constants;
 using Business.DependencyResolvers.Autofac;
 using Business.Fakes.DArch;
+using Business.Services.Authentication;
 using Core.CrossCuttingConcerns.Caching;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using Core.DependencyResolvers;
 using Core.Extensions;
+using Core.Utilities.ElasticSearch;
 using Core.Utilities.IoC;
 using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
@@ -53,10 +55,12 @@ namespace Business
 
             services.AddDependencyResolvers(Configuration, new ICoreModule[] { coreModule });
 
+            services.AddTransient<IAuthenticationCoordinator, AuthenticationCoordinator>();
+
             services.AddSingleton<ConfigurationManager>();
 
             services.AddTransient<ITokenHelper, JwtHelper>();
-
+            services.AddTransient<IElasticSearch, ElasticSearchManager>();
             services.AddSingleton<ICacheManager, MemoryCacheManager>();
 
             services.AddAutoMapper(typeof(ConfigurationManager));
@@ -72,6 +76,9 @@ namespace Business
         public void ConfigureDevelopmentServices(IServiceCollection services)
         {
             ConfigureServices(services);
+            services.AddTransient<ILogRepository, LogRepository>();
+            services.AddTransient<ITranslateRepository, TranslateRepository>();
+            services.AddTransient<ILanguageRepository, LanguageRepository>();
 
             services.AddTransient<IIntegrationRepository, IntegrationRepository>();
 
@@ -87,7 +94,6 @@ namespace Business
 
             services.AddTransient<IIntegrationRepository, IntegrationRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
-            //services.AddDbContext<ProjectDbContext>();
 
             // MSSQL kullanmka sitrediğimiz için bu kullanım olacak, eğer default istenirse MsDbContext silinmesi yeterli.
             services.AddDbContext<ProjectDbContext,MsDbContext>(); 

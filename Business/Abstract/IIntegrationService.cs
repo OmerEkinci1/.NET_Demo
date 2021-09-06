@@ -8,12 +8,11 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IInterpolationService
+    public interface IIntegrationService
     {
-        Task<IResult> Add(Integration interpolation, IFormFile file);
+        Task<IResult> Add(Integration interpolation);
         Task<IResult> Delete(Integration interpolation);
-        Task<IResult> Update(Integration interpolation, IFormFile file);
-        IResult Send(IFormFile file);
+        Task<IResult> Update(Integration interpolation);
         IDataResult<Integration> GetByID(int id);
         Task<IDataResult<IEnumerable<Integration>>> GetAll();
     }
