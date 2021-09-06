@@ -32,7 +32,7 @@ namespace Business.Concrete
 
         [TransactionScopeAspect]
         [LogAspect(typeof(FileLogger))]
-        public async Task<IResult> Add(Integration integration)
+        public IResult Add(Integration integration)
         {
             //var result = BusinessRules.Run(CheckIfThereIsAnyData(), CheckIfImagePathDoesExist(integration));
 
@@ -54,27 +54,27 @@ namespace Business.Concrete
             integration.PROCESSED_DT = DateTime.Now;
 
             _interpolationRepository.Add(integration);
-            await _interpolationRepository.SaveChangesAsync();
+            _interpolationRepository.SaveChanges();
             return new SuccessResult(Messages.pictureAdded);
         }
 
         [TransactionScopeAspect]
         [LogAspect(typeof(FileLogger))]
-        public async Task<IResult> Delete(Integration interpolation)
+        public IResult Delete(Integration interpolation)
         {
             var result = _interpolationRepository.Get(p => p.ID == interpolation.ID);
 
             _interpolationRepository.Delete(result);
-            await _interpolationRepository.SaveChangesAsync();
+            _interpolationRepository.SaveChanges();
             return new SuccessResult(Messages.pictureDeleted);
         }
 
         [CacheAspect(2)]
         [TransactionScopeAspect]
         [PerformanceAspect(3)]
-        public async Task<IDataResult<IEnumerable<Integration>>> GetAll()
+        public IDataResult<IEnumerable<Integration>> GetAll()
         {
-            var result = await _interpolationRepository.GetListAsync();
+            var result = _interpolationRepository.GetList();
             return new SuccessDataResult<IEnumerable<Integration>>(result);
         }
 
@@ -87,7 +87,7 @@ namespace Business.Concrete
 
         [TransactionScopeAspect]
         [LogAspect(typeof(FileLogger))]
-        public async Task<IResult> Update(Integration interpolation)
+        public IResult Update(Integration interpolation)
         {
             //var result = BusinessRules.Run(CheckIfThereIsAnyData(), CheckIfImagePathDoesExist(interpolation));
 
@@ -97,7 +97,7 @@ namespace Business.Concrete
             //}
 
             _interpolationRepository.Update(interpolation);
-            await _interpolationRepository.SaveChangesAsync();
+            _interpolationRepository.SaveChanges();
             return new SuccessResult(Messages.pictureUpdated);
         }
 

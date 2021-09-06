@@ -18,9 +18,9 @@ namespace DataAccess.Concrete.EntityFramework
         {
 
         }
-        public async Task<Integration> GetByID(int id)
+        public Integration GetByID(int id)
         {
-            var single = await (from integration in Context.Integrations
+            var single = from integration in Context.Integrations
                               where integration.ID == id
                               select new Integration()
                               {
@@ -31,8 +31,8 @@ namespace DataAccess.Concrete.EntityFramework
                                   PICTURE = integration.PICTURE,
                                   PROCESSED_DT = integration.PROCESSED_DT,
                                   PRODUCT_TYPE = integration.PRODUCT_TYPE
-                              }).FirstOrDefaultAsync();
-            return single;
+                              };
+            return single.FirstOrDefault();
         }      
     }
 }

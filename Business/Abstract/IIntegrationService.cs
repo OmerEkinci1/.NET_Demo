@@ -4,16 +4,27 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
+using System.ServiceModel;
 
 namespace Business.Abstract
 {
+    // We point ServiceContract for using WCF.
+    [ServiceContract]
     public interface IIntegrationService
     {
-        Task<IResult> Add(Integration interpolation);
-        Task<IResult> Delete(Integration interpolation);
-        Task<IResult> Update(Integration interpolation);
+        [OperationContract]
+        IResult Add(Integration interpolation);
+
+        [OperationContract]
+        IResult Delete(Integration interpolation);
+
+        [OperationContract]
+        IResult Update(Integration interpolation);
+
+        [OperationContract]
         IDataResult<Integration> GetByID(int id);
-        Task<IDataResult<IEnumerable<Integration>>> GetAll();
+
+        [OperationContract]
+        IDataResult<IEnumerable<Integration>> GetAll();
     }
 }

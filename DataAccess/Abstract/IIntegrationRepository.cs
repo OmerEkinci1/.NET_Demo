@@ -10,6 +10,6 @@ namespace DataAccess.Abstract
 {
     public interface IIntegrationRepository : IEntityRepository<Integration>
     {
-        Task<Integration> GetByID(int id);
+        Integration GetByID(int id);
     }
 }
