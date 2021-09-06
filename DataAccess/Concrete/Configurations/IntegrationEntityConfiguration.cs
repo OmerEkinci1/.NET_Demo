@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.Configurations
 {
-    public class InterpolationEntityConfiguration : IEntityTypeConfiguration<Integration>
+    public class IntegrationEntityConfiguration : IEntityTypeConfiguration<Integration>
     {
         public void Configure(EntityTypeBuilder<Integration> builder)
         {

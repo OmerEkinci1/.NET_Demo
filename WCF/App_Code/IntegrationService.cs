@@ -7,6 +7,7 @@ using Business.Abstract;
 using Entities.Concrete;
 using Core.Utilities.Results;
 using Business.Concrete;
+using Business.DependencyResolvers.Autofac;
 
 public class IntegrationService : IIntegrationService
 {
@@ -17,30 +18,30 @@ public class IntegrationService : IIntegrationService
         //
     }
 
-    IIntegrationService _integrationService = InstanceFactory
+    IIntegrationService _integrationService = InstanceFactory.GetInstance<IIntegrationService>();
 
-    public IResult Add(Integration interpolation)
+    public IResult Add(Integration integration)
     {
-        throw new NotImplementedException();
+        return _integrationService.Add(integration);
     }
 
-    public IResult Delete(Integration interpolation)
+    public IResult Delete(Integration integration)
     {
-        throw new NotImplementedException();
+        return _integrationService.Delete(integration);
     }
 
     public IDataResult<IEnumerable<Integration>> GetAll()
     {
-        throw new NotImplementedException();
+        return _integrationService.GetAll();
     }
 
     public IDataResult<Integration> GetByID(int id)
     {
-        throw new NotImplementedException();
+        return _integrationService.GetByID(id);
     }
 
-    public IResult Update(Integration interpolation)
+    public IResult Update(Integration integration)
     {
-        throw new NotImplementedException();
+        return _integrationService.Update(integration);
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Business.DependencyResolvers.Autofac
 {
@@ -9,8 +10,11 @@ namespace Business.DependencyResolvers.Autofac
     {
         public static T GetInstance<T>()
         {
-            var kernel = new ContainerBuilder(new AutofacBusinessModule());
-            return kernel.Get<T>();
+            // Ninject Usage
+            // var kernel = new StandartKernel(new AutofacBusinessModule());
+            //return builder.Get<T>();
+            var builder = new ContainerBuilder();
+            return (T)builder.RegisterType<T>();
         }
     }
 }

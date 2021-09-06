@@ -60,9 +60,9 @@ namespace Business.Concrete
 
         [TransactionScopeAspect]
         [LogAspect(typeof(FileLogger))]
-        public IResult Delete(Integration interpolation)
+        public IResult Delete(Integration integration)
         {
-            var result = _interpolationRepository.Get(p => p.ID == interpolation.ID);
+            var result = _interpolationRepository.Get(p => p.ID == integration.ID);
 
             _interpolationRepository.Delete(result);
             _interpolationRepository.SaveChanges();
@@ -87,7 +87,7 @@ namespace Business.Concrete
 
         [TransactionScopeAspect]
         [LogAspect(typeof(FileLogger))]
-        public IResult Update(Integration interpolation)
+        public IResult Update(Integration integration)
         {
             //var result = BusinessRules.Run(CheckIfThereIsAnyData(), CheckIfImagePathDoesExist(interpolation));
 
@@ -96,7 +96,7 @@ namespace Business.Concrete
             //    return result;
             //}
 
-            _interpolationRepository.Update(interpolation);
+            _interpolationRepository.Update(integration);
             _interpolationRepository.SaveChanges();
             return new SuccessResult(Messages.pictureUpdated);
         }

@@ -13,13 +13,13 @@ namespace Business.Abstract
     public interface IIntegrationService
     {
         [OperationContract]
-        IResult Add(Integration interpolation);
+        IResult Add(Integration integration);
 
         [OperationContract]
-        IResult Delete(Integration interpolation);
+        IResult Delete(Integration integration);
 
         [OperationContract]
-        IResult Update(Integration interpolation);
+        IResult Update(Integration integration);
 
         [OperationContract]
         IDataResult<Integration> GetByID(int id);
