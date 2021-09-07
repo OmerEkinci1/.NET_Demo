@@ -19,7 +19,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpPost("add")]
-        public async Task<IActionResult> Add([FromBody] CreateIntegrationCommand createIntegrations) // [FromBody]
+        public async Task<IActionResult> Add([FromBody] CreateIntegrationCommand createIntegrations) // [FromBody] - [FromForm]
         {
             return GetResponseOnlyResultMessage(await Mediator.Send(createIntegrations));
         }

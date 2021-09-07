@@ -110,3 +110,8 @@ D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
 D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
 D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
 D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\System.Private.ServiceModel.dll
+D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\System.Reflection.DispatchProxy.dll
+D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\System.ServiceModel.Http.dll
+D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\System.ServiceModel.Primitives.dll
+D:\Desktop\AgteksDemo\WebAPI\bin\Debug\netcoreapp3.1\System.ServiceModel.dll

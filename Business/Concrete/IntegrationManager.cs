@@ -41,13 +41,13 @@ namespace Business.Concrete
             //    return result;
             //}
 
-            string imageString = integration.PICTURE;
-            string fileName = DateTime.Now.ToString("yyyy-MM-dd HHmmssfff") + "_" + integration.JSON_TEXT;
-            Bitmap bmpFromString = BitmapHelper.Base64StringBitmap(imageString);
-            // For this usage, user must to create folder which is attached below code.
-            string path = Path.Combine(@"C:\Services\Images", fileName + ".bmp");
-            var i2 = new Bitmap(bmpFromString);
-            i2.Save(path, ImageFormat.Bmp);
+            //string imageString = integration.PICTURE;
+            //string fileName = DateTime.Now.ToString("yyyy-MM-dd HHmmssfff") + "_" + integration.JSON_TEXT;
+            //Bitmap bmpFromString = BitmapHelper.Base64StringBitmap(imageString);
+            //// For this usage, user must to create folder which is attached below code.
+            //string path = Path.Combine(@"C:\Services\Images", fileName + ".bmp");
+            //var i2 = new Bitmap(bmpFromString);
+            //i2.Save(path, ImageFormat.Bmp);
 
             integration.INS_DT = DateTime.Now;
             integration.IS_PROCESSED = "T";

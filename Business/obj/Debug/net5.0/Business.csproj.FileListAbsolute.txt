@@ -8,7 +8,6 @@ D:\Desktop\AgteksDemo\Business\bin\Debug\net5.0\Entities.dll
 D:\Desktop\AgteksDemo\Business\bin\Debug\net5.0\Core.pdb
 D:\Desktop\AgteksDemo\Business\bin\Debug\net5.0\DataAccess.pdb
 D:\Desktop\AgteksDemo\Business\bin\Debug\net5.0\Entities.pdb
-D:\Desktop\AgteksDemo\Business\obj\Debug\net5.0\Business.csprojAssemblyReference.cache
 D:\Desktop\AgteksDemo\Business\obj\Debug\net5.0\Business.GeneratedMSBuildEditorConfig.editorconfig
 D:\Desktop\AgteksDemo\Business\obj\Debug\net5.0\Business.AssemblyInfoInputs.cache
 D:\Desktop\AgteksDemo\Business\obj\Debug\net5.0\Business.AssemblyInfo.cs
@@ -17,3 +16,4 @@ D:\Desktop\AgteksDemo\Business\obj\Debug\net5.0\Business.csproj.CopyComplete
 D:\Desktop\AgteksDemo\Business\obj\Debug\net5.0\Business.dll
 D:\Desktop\AgteksDemo\Business\obj\Debug\net5.0\ref\Business.dll
 D:\Desktop\AgteksDemo\Business\obj\Debug\net5.0\Business.pdb
+D:\Desktop\AgteksDemo\Business\obj\Debug\net5.0\Business.csproj.AssemblyReference.cache

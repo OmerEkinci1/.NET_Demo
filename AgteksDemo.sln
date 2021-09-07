@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WCF", "WCF\", "{009980DF-435E-4A7F-8D79-939C9D3A5459}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6"
 		ProjectReferences = "{995715b4-3538-49ec-bfa4-8fbd74774018}|Business.dll;{6b9b728f-3614-4425-90a7-e62ab6091667}|Core.dll;{c48ecced-59d8-4bb1-8257-12eb9e42caab}|DataAccess.dll;{24ec974e-a790-464a-9486-c95da331c54c}|Entities.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_52576"
 		Debug.AspNetCompiler.PhysicalPath = "WCF\"

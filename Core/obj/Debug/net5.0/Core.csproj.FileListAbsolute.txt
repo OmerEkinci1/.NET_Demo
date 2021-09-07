@@ -1,0 +1,12 @@
+D:\Desktop\AgteksDemo\Core\bin\Debug\net5.0\Core.deps.json
+D:\Desktop\AgteksDemo\Core\bin\Debug\net5.0\Core.dll
+D:\Desktop\AgteksDemo\Core\bin\Debug\net5.0\ref\Core.dll
+D:\Desktop\AgteksDemo\Core\bin\Debug\net5.0\Core.pdb
+D:\Desktop\AgteksDemo\Core\obj\Debug\net5.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Desktop\AgteksDemo\Core\obj\Debug\net5.0\Core.AssemblyInfoInputs.cache
+D:\Desktop\AgteksDemo\Core\obj\Debug\net5.0\Core.AssemblyInfo.cs
+D:\Desktop\AgteksDemo\Core\obj\Debug\net5.0\Core.csproj.CoreCompileInputs.cache
+D:\Desktop\AgteksDemo\Core\obj\Debug\net5.0\Core.dll
+D:\Desktop\AgteksDemo\Core\obj\Debug\net5.0\ref\Core.dll
+D:\Desktop\AgteksDemo\Core\obj\Debug\net5.0\Core.pdb
+D:\Desktop\AgteksDemo\Core\obj\Debug\net5.0\Core.csproj.AssemblyReference.cache
